@@ -1,149 +1,68 @@
-# VanillaLichtung-Website – Einrichtung
+# VanillaLichtung-Website – vollständiges Austauschpaket
 
-Diese Website ist für **GitHub Pages** vorbereitet und verwendet ausschließlich die Webadresse:
+Dieses Paket ist die vollständige aktuelle Website für GitHub Pages.
 
-- Website: `www.vanillalichtung.de`
+- Website: `https://www.vanillalichtung.de`
 - Minecraft-Server: `VanillaLichtung.de`
 - Minecraft-Server mit Port: `VanillaLichtung.de:PORT`
+- Kontakt: `vanillalichtung@gmail.com`
+- Projektort: Jena
 
-Die Hauptdomain wird durch die Website **nicht verändert**. Es wird ausschließlich ein DNS-Eintrag für die Subdomain `www` hinzugefügt.
+## Bereits enthalten
 
-## Inhalt des Pakets
+- moderne responsive Startseite
+- Eröffnungsdatum 10.07.2026
+- Minecraft Java 26.2
+- überarbeiteter Text zur 32-Chunk-Sichtweite ohne Erwähnung der Simulationsdistanz
+- Freischaltung, Discord, Regeln, Neuigkeiten und Vote-Seiten
+- Kopierfunktion und optionaler Live-Status
+- Kontakt- und Projektangaben ohne privaten Namen oder Straßenanschrift
+- Datenschutzerklärung für GitHub Pages, externe Links, Live-Status, E-Mail und Google Forms
+- CNAME für `www.vanillalichtung.de`
+- 404-Seite, Favicon, Social-Vorschaubild, robots.txt und sitemap.xml
 
-- `index.html` – komplette Startseite
-- `styles.css` – modernes responsives Design
-- `script.js` – Kopierfunktion, mobiles Menü, Animationen und optionaler Live-Status
-- `impressum.html` – rechtliche Vorlage mit Pflicht-Platzhaltern
-- `datenschutz.html` – Datenschutzvorlage für die ausgelieferte Seite
-- `404.html` – eigene Fehlerseite
-- `CNAME` – setzt die GitHub-Pages-Domain auf `www.vanillalichtung.de`
-- `.nojekyll` – verhindert unnötige Jekyll-Verarbeitung
-- `robots.txt` und `sitemap.xml` – Suchmaschinen-Grundkonfiguration
-- `assets/` – Favicon und Social-Media-Vorschau
+## Bestehende GitHub-Website aktualisieren
 
-## Vor der Veröffentlichung zwingend erledigen
+1. ZIP-Datei auf dem PC vollständig entpacken.
+2. Im GitHub-Repository zur Registerkarte **Code** wechseln.
+3. **Add file → Upload files** öffnen.
+4. Alle Dateien und den Ordner `assets` aus dem entpackten Paket markieren und in GitHub ziehen.
+5. GitHub zeigt die vorhandenen Dateien als geändert an. Das ist richtig.
+6. Unten als Commit-Nachricht beispielsweise `Website vollständig aktualisiert` eintragen.
+7. **Commit changes** anklicken.
+8. GitHub Pages veröffentlicht den neuen Stand normalerweise nach kurzer Zeit automatisch.
 
-Öffne `impressum.html` und `datenschutz.html` in einem Texteditor. Ersetze alle Platzhalter in eckigen Klammern:
+Die `index.html` muss direkt auf der obersten Ebene des Repositorys liegen. Lade nicht nur die ZIP-Datei und nicht den äußeren Ordner hoch.
 
-- `[VOLLSTÄNDIGER NAME]`
-- `[STRASSE UND HAUSNUMMER]`
-- `[PLZ UND ORT]`
-- `[POSTANSCHRIFT]`
-- `[E-MAIL-ADRESSE]`
-- `[VOLLSTÄNDIGER NAME UND ANSCHRIFT]`
+## Veraltete Dateien vermeiden
 
-Auch `mailto:DEINE-EMAIL-ADRESSE` muss durch deine echte Kontaktadresse ersetzt werden. Die Vorlagen sind keine Rechtsberatung.
+Dieses Paket verwendet weiterhin die Datei `impressum.html`, damit vorhandene Links nicht brechen. Die Seite heißt sichtbar nun **Kontakt & Projektangaben**. Nach dem Hochladen sollten keine alten rot markierten Platzhalter mehr im Repository vorhanden sein.
 
-## Variante A – einfach im GitHub-Browser hochladen
+## Domain-Verhalten
 
-1. Erstelle unter `github.com` ein Konto oder melde dich an.
-2. Klicke oben rechts auf **+ → New repository**.
-3. Repository-Name, zum Beispiel: `vanillalichtung-website`.
-4. Stelle es auf **Public** und erstelle das Repository.
-5. Öffne das Repository und wähle **Add file → Upload files**.
-6. Entpacke diese ZIP-Datei auf deinem Computer.
-7. Lade **den Inhalt des Ordners** hoch – nicht den äußeren Ordner selbst. `index.html` muss direkt in der obersten Ebene des Repositorys liegen.
-8. Prüfe, dass auch die Datei `CNAME` und der Ordner `assets` vorhanden sind. Die versteckte Datei `.nojekyll` ist hilfreich, aber nicht zwingend.
-9. Klicke unten auf **Commit changes**.
-10. Öffne **Settings → Pages**.
-11. Unter **Build and deployment**:
-    - Source: `Deploy from a branch`
-    - Branch: `main`
-    - Folder: `/ (root)`
-    - Save
-12. Unter **Custom domain** sollte wegen der `CNAME`-Datei bereits `www.vanillalichtung.de` stehen. Falls nicht, trage sie dort ein und speichere.
+Die beiden Adressen haben bewusst unterschiedliche Aufgaben:
 
-GitHub zeigt zunächst eine vorläufige Adresse wie `DEIN-NAME.github.io/vanillalichtung-website/`. Die eigene Domain funktioniert erst nach dem DNS-Schritt.
+- `www.vanillalichtung.de` zeigt die GitHub-Pages-Website.
+- `vanillalichtung.de` bleibt per A- und SRV-Eintrag mit dem Minecraft-Server verbunden.
 
-## STRATO-DNS richtig setzen – ohne die Ingame-Adresse anzufassen
+Wenn `vanillalichtung.de` ohne `www` in einem Browser geöffnet wird, kann deshalb die Standardseite des Minecraft-Hosters erscheinen. Das ist keine fehlerhafte Website-Datei, sondern eine Folge der getrennten DNS-Konfiguration. Zum Aufrufen der Website immer `https://www.vanillalichtung.de` verwenden.
 
-Wichtig: Ändere **keinen** bestehenden A-, AAAA- oder SRV-Eintrag für `VanillaLichtung.de`. Dadurch bleibt die Hauptdomain exakt wie bisher mit dem Minecraft-Server verbunden.
+Wenn sogar bei `https://www.vanillalichtung.de` noch die Hoster-Seite erscheint, handelt es sich meistens um einen alten DNS- oder Browser-Cache. Dann:
 
-Lege nur für `www` einen CNAME-Eintrag an:
+1. URL einschließlich `https://www.` kontrollieren.
+2. Browser vollständig schließen und erneut öffnen.
+3. Unter Windows eine Eingabeaufforderung als normaler Nutzer öffnen und `ipconfig /flushdns` ausführen.
+4. Danach `https://www.vanillalichtung.de` erneut aufrufen.
+5. In GitHub unter **Settings → Pages** prüfen, ob die Domainprüfung erfolgreich ist und **Enforce HTTPS** aktiviert wurde.
 
-- Typ: `CNAME`
-- Host/Subdomain: `www`
-- Ziel/Wert: `DEIN-GITHUB-BENUTZERNAME.github.io`
+## DNS nicht verändern
 
-Das Ziel enthält **kein** `https://`, keinen Schrägstrich und nicht den Repository-Namen.
+Für weitere Website-Updates sind keine Änderungen bei STRATO notwendig. Insbesondere A-Record, SRV-Record, Server-IP und Minecraft-Port der Hauptdomain nicht verändern. Der CNAME der Subdomain `www` bleibt auf `gaunergnu.github.io` gerichtet.
 
-Beispiel: Lautet dein GitHub-Name `gustav123`, ist das Ziel:
+## Rechtlicher Hinweis
 
-`gustav123.github.io`
+Die Kontaktseite veröffentlicht entsprechend der gewünschten Privatsphäre nur das private Projekt, Jena und die Projekt-E-Mail. Sie ist deshalb bewusst als **Kontakt & Projektangaben** bezeichnet und nicht als Zusicherung eines vollständig rechtskonformen Impressums. Ob im Einzelfall zusätzliche Anbieterangaben erforderlich sind, kann verbindlich nur rechtlich geprüft werden.
 
-Im STRATO-Kundenlogin liegt dies üblicherweise unter:
+## Sicherheit
 
-`Domains → Domainverwaltung → vanillalichtung.de → DNS/Subdomainverwaltung`
-
-Falls für `www` bereits ein A-, AAAA- oder CNAME-Eintrag existiert, ändere **nur diesen www-Eintrag**. Die Einträge der Hauptdomain `@` beziehungsweise `vanillalichtung.de` bleiben unverändert.
-
-## HTTPS aktivieren
-
-Nachdem GitHub den DNS-Eintrag erkannt hat:
-
-1. Wieder **GitHub → Repository → Settings → Pages** öffnen.
-2. Warten, bis die Domainprüfung erfolgreich ist.
-3. **Enforce HTTPS** aktivieren.
-
-DNS- und Zertifikatsänderungen können zeitversetzt sichtbar werden. Entferne währenddessen nicht die bisherige Minecraft-DNS-Konfiguration.
-
-## Website lokal prüfen
-
-Ein Doppelklick auf `index.html` zeigt bereits fast alles. Für eine realistischere lokale Vorschau kannst du im entpackten Ordner ein Terminal öffnen und ausführen:
-
-```bash
-python -m http.server 8000
-```
-
-Danach im Browser öffnen:
-
-`http://localhost:8000`
-
-## Inhalte später ändern
-
-### Serveradresse
-
-Sie steht mehrfach in `index.html` und einmal in `script.js` als:
-
-```js
-const SERVER_ADDRESS = 'VanillaLichtung.de';
-```
-
-### Freischaltungsformular
-
-Aktuell eingetragen:
-
-`https://forms.gle/4UyfsDZqbP4yVSKi9`
-
-Suche projektweit nach dieser URL, um sie später zu ersetzen.
-
-### Discord
-
-Aktuell eingetragen:
-
-`https://discord.gg/wDB4ukjXA`
-
-### End-Eröffnung
-
-Das Datum `01.08.2026` steht im Eventbereich und unter Neuigkeiten. Nach dem Event sollte der Text aktualisiert werden.
-
-### Live-Status
-
-Der Status wird aus Datenschutzgründen erst nach einem Klick geladen. Er verwendet:
-
-`https://api.mcstatus.io/v2/status/java/VanillaLichtung.de?query=false`
-
-Soll die externe Statusabfrage vollständig entfernt werden, entferne den Block mit `id="server-status"` aus `index.html` und den Status-Abschnitt aus `script.js`.
-
-## Neue Version veröffentlichen
-
-1. Gewünschte Dateien lokal bearbeiten.
-2. Im GitHub-Repository **Add file → Upload files** wählen.
-3. Geänderte Dateien hochladen und vorhandene ersetzen.
-4. **Commit changes** anklicken.
-
-GitHub Pages veröffentlicht den neuen Stand automatisch.
-
-## Sicherheitsregel
-
-Keine Minecraft-Serverdateien, IP-Managementdaten, Passwörter, Tokens, Backups, Logs oder Plugin-Konfigurationen in dieses öffentliche Repository hochladen. In das Website-Repository gehören ausschließlich die Dateien aus diesem Paket und später öffentliche Bilder.
+Keine Minecraft-Serverdateien, Passwörter, Tokens, Backups, Logs, private Formulardaten oder Plugin-Konfigurationen in das öffentliche GitHub-Repository hochladen.

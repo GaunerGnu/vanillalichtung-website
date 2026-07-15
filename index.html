@@ -10,8 +10,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.vanillalichtung.de/">
   <meta property="og:image" content="https://www.vanillalichtung.de/assets/social-preview.png">
+  <meta property="og:image:width" content="2048">
+  <meta property="og:image:height" content="682">
+  <meta property="og:image:alt" content="VanillaLichtung – Minecraft-Waldlichtung bei Sonnenuntergang">
   <link rel="canonical" href="https://www.vanillalichtung.de/">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
   <title>VanillaLichtung – Vanilla mit mehr Weitblick</title>
 </head>
@@ -21,7 +26,7 @@
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a class="brand" href="#top" aria-label="VanillaLichtung Startseite">
-        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <img class="brand-icon" src="assets/server-icon-64.png" width="38" height="38" alt="" aria-hidden="true">
         <span>VanillaLichtung</span>
       </a>
 
@@ -70,20 +75,19 @@
         </div>
 
         <div class="hero-panel reveal reveal-delay">
-          <div class="world-window" aria-label="Abstrakte blockige Waldlichtung">
-            <div class="sun"></div>
-            <div class="mountain mountain-one"></div>
-            <div class="mountain mountain-two"></div>
-            <div class="tree tree-one"><b></b><i></i></div>
-            <div class="tree tree-two"><b></b><i></i></div>
-            <div class="tree tree-three"><b></b><i></i></div>
-            <div class="ground ground-back"></div>
-            <div class="ground ground-front"></div>
-            <div class="water"></div>
-            <div class="world-label">
-              <span>Overworld-Sichtweite</span>
-              <strong>bis zu 32 Chunks</strong>
+          <div class="server-identity">
+            <img class="server-emblem" src="assets/server-icon.png" width="150" height="150" alt="Server-Icon von VanillaLichtung">
+            <div class="identity-copy">
+              <span class="identity-kicker">Deutscher Survival-PvE-Server</span>
+              <strong>VanillaLichtung</strong>
+              <small>Vanilla mit mehr Weitblick.</small>
             </div>
+          </div>
+
+          <div class="identity-stats" aria-label="Hauptmerkmale des Servers">
+            <div><strong>32</strong><span>Chunks Sichtweite</span></div>
+            <div><strong>26.2</strong><span>Minecraft Java</span></div>
+            <div><strong>PvE</strong><span>ohne Pay-to-Win</span></div>
           </div>
 
           <div class="server-card">
@@ -186,7 +190,7 @@
           <li class="step reveal">
             <span class="step-index">01</span>
             <h3>Server hinzufügen</h3>
-            <p>Öffne Minecraft Java und verbinde dich mit <strong>VanillaLichtung.de</strong>. Alternativ funktioniert auch die Adresse mit deinem angezeigten Port.</p>
+            <p>Öffne Minecraft Java und verbinde dich einfach mit <strong>VanillaLichtung.de</strong>. Ein Port muss nicht eingetragen werden.</p>
             <button class="mini-copy copy-address" type="button" data-copy="VanillaLichtung.de">Adresse kopieren</button>
           </li>
           <li class="step reveal">
@@ -313,7 +317,7 @@
           <details class="faq reveal"><summary>Gibt es Teleportbefehle?</summary><p>Nein. Es gibt bewusst kein <code>/home</code>, <code>/tpa</code> oder <code>/spawn</code>. Wege, Nether-Verbindungen und gemeinsame Infrastruktur bleiben dadurch relevant.</p></details>
           <details class="faq reveal"><summary>Kann ich mit Freunden bauen?</summary><p>Ja. Über <code>/trust &lt;Name&gt;</code> kannst du anderen Spielern Zugriff auf dein geschütztes Gebiet geben.</p></details>
           <details class="faq reveal"><summary>Ist der Server Pay-to-Win?</summary><p>Nein. Freiwillige Unterstützung verschafft keine spielerischen Vorteile, keine Items und keine zusätzlichen Rechte im Survival.</p></details>
-          <details class="faq reveal"><summary>Wie lautet die Adresse?</summary><p><strong>VanillaLichtung.de</strong>. Die Hauptdomain bleibt zugleich die direkte Ingame-Adresse; die Website liegt ausschließlich unter <strong>www.vanillalichtung.de</strong>.</p></details>
+          <details class="faq reveal"><summary>Wie lautet die Adresse?</summary><p><strong>VanillaLichtung.de</strong>. Im Browser erreichst du die Website unter <strong>VanillaLichtung.de</strong> und <strong>www.VanillaLichtung.de</strong>. Im Minecraft-Client ist <strong>VanillaLichtung.de</strong> zugleich die Serveradresse.</p></details>
         </div>
       </div>
     </section>
@@ -322,7 +326,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><span></span></span><span>VanillaLichtung</span></a>
+        <a class="brand footer-brand" href="#top"><img class="brand-icon" src="assets/server-icon-64.png" width="38" height="38" alt="" aria-hidden="true"><span>VanillaLichtung</span></a>
         <p>Ein unabhängiges, deutschsprachiges Minecraft-Communityprojekt. Nicht mit Mojang Studios oder Microsoft verbunden.</p>
       </div>
       <div class="footer-server">

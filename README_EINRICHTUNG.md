@@ -66,3 +66,12 @@ Die Kontaktseite veröffentlicht entsprechend der gewünschten Privatsphäre nur
 ## Sicherheit
 
 Keine Minecraft-Serverdateien, Passwörter, Tokens, Backups, Logs, private Formulardaten oder Plugin-Konfigurationen in das öffentliche GitHub-Repository hochladen.
+
+
+## Verwendete Bilddateien
+
+- `assets/server-icon.png`: großes Server-Icon für die Website
+- `assets/server-icon-64.png`: kompaktes Icon für Navigation und Footer
+- `assets/hero-lichtung.webp`: optimierter Hintergrund ohne Schrift
+- `assets/social-preview.png`: Vorschaugrafik beim Teilen der Website
+- `assets/favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`: Browser- und Geräteicons

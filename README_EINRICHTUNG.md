@@ -1,351 +1,77 @@
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0d1712">
-  <meta name="description" content="VanillaLichtung ist ein deutscher, vanilla-naher Minecraft-Survival-PvE-Server mit bis zu 32 Chunks Sichtweite, Claims und persönlicher Freischaltung.">
-  <meta property="og:title" content="VanillaLichtung – Vanilla mit mehr Weitblick">
-  <meta property="og:description" content="Deutscher Minecraft-Survival-PvE-Server: bis zu 32 Chunks Sichtweite, keine Economy, kein Pay-to-Win und eine langfristige Welt.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.vanillalichtung.de/">
-  <meta property="og:image" content="https://www.vanillalichtung.de/assets/social-preview.png">
-  <meta property="og:image:width" content="2048">
-  <meta property="og:image:height" content="682">
-  <meta property="og:image:alt" content="VanillaLichtung – Minecraft-Waldlichtung bei Sonnenuntergang">
-  <link rel="canonical" href="https://www.vanillalichtung.de/">
-  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="styles.css">
-  <title>VanillaLichtung – Vanilla mit mehr Weitblick</title>
-</head>
-<body>
-  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+# VanillaLichtung-Website – vollständiges Austauschpaket
 
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="VanillaLichtung Startseite">
-        <img class="brand-icon" src="assets/server-icon-64.png" width="38" height="38" alt="" aria-hidden="true">
-        <span>VanillaLichtung</span>
-      </a>
+Dieses Paket ist die vollständige aktuelle Website für GitHub Pages.
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
+- Website: `https://www.vanillalichtung.de`
+- Minecraft-Server: `VanillaLichtung.de`
+- Minecraft-Server mit Port: `VanillaLichtung.de:PORT`
+- Kontakt: `vanillalichtung@gmail.com`
+- Projektort: Jena
 
-      <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
-        <a href="#konzept">Konzept</a>
-        <a href="#mitspielen">Mitspielen</a>
-        <a href="#regeln">Regeln</a>
-        <a href="#community">Community</a>
-        <a class="nav-cta" href="https://forms.gle/4UyfsDZqbP4yVSKi9" target="_blank" rel="noopener noreferrer">Freischaltung</a>
-      </nav>
-    </div>
-  </header>
+## Bereits enthalten
 
-  <main id="main">
-    <section class="hero section-pad">
-      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
-      <div class="pixel-field" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
+- moderne responsive Startseite
+- Eröffnungsdatum 10.07.2026
+- Minecraft Java 26.2
+- überarbeiteter Text zur 32-Chunk-Sichtweite ohne Erwähnung der Simulationsdistanz
+- Freischaltung, Discord, Regeln, Neuigkeiten und Vote-Seiten
+- Kopierfunktion und optionaler Live-Status
+- Kontakt- und Projektangaben ohne privaten Namen oder Straßenanschrift
+- Datenschutzerklärung für GitHub Pages, externe Links, Live-Status, E-Mail und Google Forms
+- CNAME für `www.vanillalichtung.de`
+- 404-Seite, Favicon, Social-Vorschaubild, robots.txt und sitemap.xml
 
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow"><span class="pulse-dot"></span> Seit 10.07.2026 online · Deutscher Minecraft-Java-Server</div>
-          <h1>Vanilla.<br><span>Nur mit mehr Weitblick.</span></h1>
-          <p class="hero-lead">Ein ruhiger, vanilla-naher Survival-PvE-Server mit bis zu <strong>32 Chunks Sichtweite</strong>, geschützten Bauwerken und einer Welt, die auf langfristiges Spielen ausgelegt ist.</p>
+## Bestehende GitHub-Website aktualisieren
 
-          <div class="hero-actions">
-            <button class="button button-primary copy-address" type="button" data-copy="VanillaLichtung.de">
-              <span class="button-icon" aria-hidden="true">⧉</span>
-              <span class="copy-label">VanillaLichtung.de kopieren</span>
-            </button>
-            <a class="button button-secondary" href="https://forms.gle/4UyfsDZqbP4yVSKi9" target="_blank" rel="noopener noreferrer">Freischaltung öffnen <span aria-hidden="true">↗</span></a>
-          </div>
+1. ZIP-Datei auf dem PC vollständig entpacken.
+2. Im GitHub-Repository zur Registerkarte **Code** wechseln.
+3. **Add file → Upload files** öffnen.
+4. Alle Dateien und den Ordner `assets` aus dem entpackten Paket markieren und in GitHub ziehen.
+5. GitHub zeigt die vorhandenen Dateien als geändert an. Das ist richtig.
+6. Unten als Commit-Nachricht beispielsweise `Website vollständig aktualisiert` eintragen.
+7. **Commit changes** anklicken.
+8. GitHub Pages veröffentlicht den neuen Stand normalerweise nach kurzer Zeit automatisch.
 
-          <div class="hero-meta" aria-label="Servermerkmale">
-            <span>Java Edition</span>
-            <span>Schwierigkeit: Schwer</span>
-            <span>PvE</span>
-            <span>Kein Pay-to-Win</span>
-          </div>
-        </div>
+Die `index.html` muss direkt auf der obersten Ebene des Repositorys liegen. Lade nicht nur die ZIP-Datei und nicht den äußeren Ordner hoch.
 
-        <div class="hero-panel reveal reveal-delay">
-          <div class="server-identity">
-            <img class="server-emblem" src="assets/server-icon.png" width="150" height="150" alt="Server-Icon von VanillaLichtung">
-            <div class="identity-copy">
-              <span class="identity-kicker">Deutscher Survival-PvE-Server</span>
-              <strong>VanillaLichtung</strong>
-              <small>Vanilla mit mehr Weitblick.</small>
-            </div>
-          </div>
+## Veraltete Dateien vermeiden
 
-          <div class="identity-stats" aria-label="Hauptmerkmale des Servers">
-            <div><strong>32</strong><span>Chunks Sichtweite</span></div>
-            <div><strong>26.2</strong><span>Minecraft Java</span></div>
-            <div><strong>PvE</strong><span>ohne Pay-to-Win</span></div>
-          </div>
+Dieses Paket verwendet weiterhin die Datei `impressum.html`, damit vorhandene Links nicht brechen. Die Seite heißt sichtbar nun **Kontakt & Projektangaben**. Nach dem Hochladen sollten keine alten rot markierten Platzhalter mehr im Repository vorhanden sein.
 
-          <div class="server-card">
-            <div>
-              <span class="server-label">Serveradresse</span>
-              <strong>VanillaLichtung.de</strong>
-            </div>
-            <button class="icon-button copy-address" type="button" data-copy="VanillaLichtung.de" aria-label="Serveradresse kopieren">⧉</button>
-          </div>
+## Domain-Verhalten
 
-          <div class="status-card" id="server-status" aria-live="polite">
-            <div class="status-main">
-              <span class="status-dot status-idle"></span>
-              <div>
-                <strong>Status noch nicht geladen</strong>
-                <small>Wird nur auf deinen Klick extern abgefragt.</small>
-              </div>
-            </div>
-            <button class="status-button" id="load-status" type="button">Live-Status laden</button>
-          </div>
-        </div>
-      </div>
-    </section>
+Die beiden Adressen haben bewusst unterschiedliche Aufgaben:
 
-    <section class="announcement-wrap">
-      <div class="container">
-        <div class="announcement reveal">
-          <div class="announcement-date"><strong>01</strong><span>SEP<br>2026</span></div>
-          <div>
-            <span class="kicker">Gemeinsames Server-Event</span>
-            <h2>Wir öffnen das End gemeinsam.</h2>
-            <p>Bis dahin wächst die Overworld-Community zusammen – danach beginnt die gemeinsame Suche nach Endstädten und Elytren.</p>
-          </div>
-          <a class="text-link" href="https://discord.gg/wDB4ukjXA" target="_blank" rel="noopener noreferrer">Auf Discord dabei sein <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </section>
+- `www.vanillalichtung.de` zeigt die GitHub-Pages-Website.
+- `vanillalichtung.de` bleibt per A- und SRV-Eintrag mit dem Minecraft-Server verbunden.
 
-    <section class="section section-light" id="konzept">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">Das Konzept</span>
-          <h2>Weniger Systeme.<br>Mehr echtes Survival.</h2>
-          <p>VanillaLichtung verändert Minecraft nicht in ein Minigame. Die wenigen Ergänzungen schützen deine Zeit und deine Bauwerke, ohne den eigentlichen Spielfluss zu ersetzen.</p>
-        </div>
+Wenn `vanillalichtung.de` ohne `www` in einem Browser geöffnet wird, kann deshalb die Standardseite des Minecraft-Hosters erscheinen. Das ist keine fehlerhafte Website-Datei, sondern eine Folge der getrennten DNS-Konfiguration. Zum Aufrufen der Website immer `https://www.vanillalichtung.de` verwenden.
 
-        <div class="feature-grid">
-          <article class="feature-card feature-card-wide reveal">
-            <div class="feature-number">32</div>
-            <div>
-              <span class="feature-tag">Das Hauptmerkmal</span>
-              <h3>Weite Landschaft statt Nebelwand</h3>
-              <p>In der Overworld reicht die Sichtweite bis zu 32 Chunks. Berge, Wälder und Bauwerke wirken dadurch deutlich größer und zusammenhängender, während das eigentliche Spielgefühl bewusst vanilla-nah bleibt.</p>
-            </div>
-          </article>
+Wenn sogar bei `https://www.vanillalichtung.de` noch die Hoster-Seite erscheint, handelt es sich meistens um einen alten DNS- oder Browser-Cache. Dann:
 
-          <article class="feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">◇</div>
-            <h3>Vanilla-nah</h3>
-            <p>Keine Kits, keine Economy, kein Shop, kein <code>/home</code> und kein <code>/tpa</code>. Reisen und Fortschritt behalten ihren Wert.</p>
-          </article>
+1. URL einschließlich `https://www.` kontrollieren.
+2. Browser vollständig schließen und erneut öffnen.
+3. Unter Windows eine Eingabeaufforderung als normaler Nutzer öffnen und `ipconfig /flushdns` ausführen.
+4. Danach `https://www.vanillalichtung.de` erneut aufrufen.
+5. In GitHub unter **Settings → Pages** prüfen, ob die Domainprüfung erfolgreich ist und **Enforce HTTPS** aktiviert wurde.
 
-          <article class="feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">▣</div>
-            <h3>Geschützte Bauwerke</h3>
-            <p>Du startest mit 10 Claim-Chunks und erhältst alle 90 Minuten Spielzeit einen weiteren – bis zu zehn zusätzliche Chunks.</p>
-          </article>
+## DNS nicht verändern
 
-          <article class="feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">◎</div>
-            <h3>Ruhiges PvE</h3>
-            <p>PvP ist deaktiviert. Es geht um Bauen, Erkunden, Farmen und ein faires Miteinander auf der Schwierigkeit Schwer.</p>
-          </article>
+Für weitere Website-Updates sind keine Änderungen bei STRATO notwendig. Insbesondere A-Record, SRV-Record, Server-IP und Minecraft-Port der Hauptdomain nicht verändern. Der CNAME der Subdomain `www` bleibt auf `gaunergnu.github.io` gerichtet.
 
-          <article class="feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">⌁</div>
-            <h3>Persönliche Freischaltung</h3>
-            <p>Ein kurzes Formular hält Griefer und Wegwerfaccounts fern, ohne VanillaLichtung zu einer geschlossenen Privatwelt zu machen.</p>
-          </article>
-        </div>
+## Rechtlicher Hinweis
 
-        <div class="principles reveal">
-          <div><strong>0 €</strong><span>Spielvorteile</span></div>
-          <div><strong>10 + 10</strong><span>mögliche Claim-Chunks</span></div>
-          <div><strong>26.2</strong><span>Minecraft Java</span></div>
-          <div><strong>Langfristig</strong><span>ausgelegte Survivalwelt</span></div>
-        </div>
-      </div>
-    </section>
+Die Kontaktseite veröffentlicht entsprechend der gewünschten Privatsphäre nur das private Projekt, Jena und die Projekt-E-Mail. Sie ist deshalb bewusst als **Kontakt & Projektangaben** bezeichnet und nicht als Zusicherung eines vollständig rechtskonformen Impressums. Ob im Einzelfall zusätzliche Anbieterangaben erforderlich sind, kann verbindlich nur rechtlich geprüft werden.
 
-    <section class="section section-dark" id="mitspielen">
-      <div class="container">
-        <div class="section-heading heading-on-dark reveal">
-          <span class="kicker">In wenigen Minuten dabei</span>
-          <h2>So kommst du in die Welt.</h2>
-          <p>Du kannst den Server sofort betreten. Die eigentliche Survivalwelt wird nach einer kurzen persönlichen Freischaltung zugänglich.</p>
-        </div>
+## Sicherheit
 
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step-index">01</span>
-            <h3>Server hinzufügen</h3>
-            <p>Öffne Minecraft Java und verbinde dich einfach mit <strong>VanillaLichtung.de</strong>. Ein Port muss nicht eingetragen werden.</p>
-            <button class="mini-copy copy-address" type="button" data-copy="VanillaLichtung.de">Adresse kopieren</button>
-          </li>
-          <li class="step reveal">
-            <span class="step-index">02</span>
-            <h3>Kurz vorstellen</h3>
-            <p>Fülle das bewusst kurze Formular aus. Es geht nicht um perfekte Antworten, sondern darum, echte Spieler von Griefer-Accounts zu unterscheiden.</p>
-            <a class="mini-link" href="https://forms.gle/4UyfsDZqbP4yVSKi9" target="_blank" rel="noopener noreferrer">Formular öffnen ↗</a>
-          </li>
-          <li class="step reveal">
-            <span class="step-index">03</span>
-            <h3>Freigabe erhalten</h3>
-            <p>Nach der Prüfung wirst du freigeschaltet. Am Spawn bringt dich der Button <strong>„Jetzt spielen“</strong> anschließend direkt in die Survivalwelt.</p>
-            <span class="mini-note">Kein zusätzlicher Mod erforderlich</span>
-          </li>
-        </ol>
+Keine Minecraft-Serverdateien, Passwörter, Tokens, Backups, Logs, private Formulardaten oder Plugin-Konfigurationen in das öffentliche GitHub-Repository hochladen.
 
-        <div class="join-callout reveal">
-          <div>
-            <span class="kicker">Bereit?</span>
-            <h3>Dein nächstes Bauprojekt beginnt auf der Lichtung.</h3>
-          </div>
-          <div class="join-actions">
-            <button class="button button-primary copy-address" type="button" data-copy="VanillaLichtung.de"><span class="copy-label">Serveradresse kopieren</span></button>
-            <a class="button button-ghost" href="https://discord.gg/wDB4ukjXA" target="_blank" rel="noopener noreferrer">Discord öffnen</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section-light" id="regeln">
-      <div class="container">
-        <div class="two-column-heading reveal">
-          <div>
-            <span class="kicker">Klare Grundsätze</span>
-            <h2>Regeln, die man sich merken kann.</h2>
-          </div>
-          <p>Keine juristische Wand aus Kleingedrucktem. Die Regeln sollen das gemeinsame Survival schützen und sind deshalb bewusst einfach formuliert.</p>
-        </div>
+## Verwendete Bilddateien
 
-        <div class="rules-grid">
-          <article class="rule reveal"><span>01</span><div><h3>Kein Griefing</h3><p>Baue nichts absichtlich ab, beschädige nichts und nimm nichts, was anderen gehört.</p></div></article>
-          <article class="rule reveal"><span>02</span><div><h3>Fair spielen</h3><p>Keine Cheats, kein X-Ray, kein Duping und keine anderen unfairen Hilfsmittel.</p></div></article>
-          <article class="rule reveal"><span>03</span><div><h3>Claims respektieren</h3><p>Geschützte Gebiete und die unmittelbare Umgebung fremder Projekte werden respektiert.</p></div></article>
-          <article class="rule reveal"><span>04</span><div><h3>Freundlich bleiben</h3><p>Behandle andere Spieler fair und kläre Konflikte ruhig oder gemeinsam mit dem Team.</p></div></article>
-          <article class="rule reveal"><span>05</span><div><h3>Farmen mit Augenmaß</h3><p>Farmen sind erlaubt. Extreme Anlagen, die den Server dauerhaft belasten, bitte vorher abstimmen.</p></div></article>
-          <article class="rule reveal"><span>06</span><div><h3>PvE bleibt PvE</h3><p>Das Serverkonzept basiert auf Kooperation und nicht auf dem Umgehen des deaktivierten PvP.</p></div></article>
-        </div>
-
-        <details class="commands reveal">
-          <summary>
-            <span><strong>Die wichtigsten Befehle</strong><small>Claims, Nachrichten und Informationen</small></span>
-            <span class="summary-icon" aria-hidden="true">+</span>
-          </summary>
-          <div class="command-grid">
-            <div><code>/claim</code><span>Aktuellen Chunk schützen</span></div>
-            <div><code>/unclaim</code><span>Aktuellen Chunk freigeben</span></div>
-            <div><code>/deleteclaim confirm</code><span>Eigenes Gebiet löschen</span></div>
-            <div><code>/trust &lt;Name&gt;</code><span>Spieler zum Gebiet hinzufügen</span></div>
-            <div><code>/untrust &lt;Name&gt;</code><span>Zugriff wieder entfernen</span></div>
-            <div><code>/spendenkiste</code><span>Öffentliche Kiste festlegen</span></div>
-            <div><code>/tell &lt;Name&gt; &lt;Text&gt;</code><span>Private Nachricht senden</span></div>
-            <div><code>/r &lt;Text&gt;</code><span>Auf die letzte Nachricht antworten</span></div>
-            <div><code>/info</code><span>Serverinformationen anzeigen</span></div>
-            <div><code>/regeln</code><span>Regeln im Spiel anzeigen</span></div>
-            <div><code>/vote</code><span>Wichtigste Vote-Seiten öffnen</span></div>
-            <div><code>/discord</code><span>Discord-Link anzeigen</span></div>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <section class="section community-section" id="community">
-      <div class="container community-grid">
-        <div class="community-copy reveal">
-          <span class="kicker">Gemeinsam statt anonym</span>
-          <h2>Die Community gehört zum Server.</h2>
-          <p>Auf Discord findest du Neuigkeiten, Absprachen zu gemeinsamen Projekten und Hilfe, falls im Spiel etwas unklar ist. Voten hilft neuen Spielern, VanillaLichtung überhaupt zu entdecken.</p>
-          <div class="community-actions">
-            <a class="button button-primary" href="https://discord.gg/wDB4ukjXA" target="_blank" rel="noopener noreferrer">Discord beitreten <span aria-hidden="true">↗</span></a>
-            <a class="button button-secondary-dark" href="https://minecraft-server.eu/vote/index/239E7" target="_blank" rel="noopener noreferrer">Jetzt voten</a>
-          </div>
-        </div>
-
-        <div class="community-stack">
-          <article class="community-card reveal">
-            <span class="card-kicker">Neuigkeiten</span>
-            <h3>VanillaLichtung wächst Schritt für Schritt.</h3>
-            <ul class="news-list">
-              <li><time datetime="2026-09-01">01.09.2026</time><span>Gemeinsame Öffnung des Ends</span></li>
-              <li><time datetime="2026-07">Juli 2026</time><span>Discord-Community eröffnet</span></li>
-              <li><time datetime="2026-07">Juli 2026</time><span>Anti-Xray und Schutzsysteme erweitert</span></li>
-              <li><time datetime="2026-07">Juli 2026</time><span>Weltgrenze und vorbereitete Spielwelt eingerichtet</span></li>
-            </ul>
-          </article>
-
-          <details class="community-card vote-card reveal">
-            <summary>
-              <span><span class="card-kicker">Server unterstützen</span><strong>Weitere Vote-Seiten</strong></span>
-              <span class="summary-icon" aria-hidden="true">+</span>
-            </summary>
-            <div class="vote-links">
-              <a href="https://serverliste.net/vote/5619" target="_blank" rel="noopener noreferrer">Serverliste.net <span>↗</span></a>
-              <a href="https://www.minecraft-serverlist.net/vote/60569" target="_blank" rel="noopener noreferrer">Minecraft-Serverlist.net <span>↗</span></a>
-              <a href="https://craftlist.org/vanillalichtung" target="_blank" rel="noopener noreferrer">Craftlist <span>↗</span></a>
-              <a href="https://minecraft-server-list.com/server/521679/vote/" target="_blank" rel="noopener noreferrer">Minecraft Server List <span>↗</span></a>
-              <a href="https://www.minerank.com/vanillalichtung/vote#vote-now" target="_blank" rel="noopener noreferrer">Minerank <span>↗</span></a>
-              <a href="https://minecraft-servers.de/server/vanillalichtung/vote" target="_blank" rel="noopener noreferrer">Minecraft-Servers.de <span>↗</span></a>
-              <a href="https://mclike.com/vote-194171" target="_blank" rel="noopener noreferrer">MCLike <span>↗</span></a>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section faq-section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">Kurz beantwortet</span>
-          <h2>Häufige Fragen.</h2>
-        </div>
-        <div class="faq-grid">
-          <details class="faq reveal"><summary>Brauche ich Mods?</summary><p>Nein. VanillaLichtung ist ein Java-Server und kann mit einem normalen Minecraft-Client betreten werden. Shader oder Ressourcenpakete sind freiwillig.</p></details>
-          <details class="faq reveal"><summary>Ist der Server eine Whitelist?</summary><p>Du kannst direkt joinen und den Spawn betreten. Für den Zugang zur Survivalwelt ist anschließend die kurze persönliche Freischaltung erforderlich.</p></details>
-          <details class="faq reveal"><summary>Gibt es Teleportbefehle?</summary><p>Nein. Es gibt bewusst kein <code>/home</code>, <code>/tpa</code> oder <code>/spawn</code>. Wege, Nether-Verbindungen und gemeinsame Infrastruktur bleiben dadurch relevant.</p></details>
-          <details class="faq reveal"><summary>Kann ich mit Freunden bauen?</summary><p>Ja. Über <code>/trust &lt;Name&gt;</code> kannst du anderen Spielern Zugriff auf dein geschütztes Gebiet geben.</p></details>
-          <details class="faq reveal"><summary>Ist der Server Pay-to-Win?</summary><p>Nein. Freiwillige Unterstützung verschafft keine spielerischen Vorteile, keine Items und keine zusätzlichen Rechte im Survival.</p></details>
-          <details class="faq reveal"><summary>Wie lautet die Adresse?</summary><p><strong>VanillaLichtung.de</strong>. Im Browser erreichst du die Website unter <strong>VanillaLichtung.de</strong> und <strong>www.VanillaLichtung.de</strong>. Im Minecraft-Client ist <strong>VanillaLichtung.de</strong> zugleich die Serveradresse.</p></details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand footer-brand" href="#top"><img class="brand-icon" src="assets/server-icon-64.png" width="38" height="38" alt="" aria-hidden="true"><span>VanillaLichtung</span></a>
-        <p>Ein unabhängiges, deutschsprachiges Minecraft-Communityprojekt. Nicht mit Mojang Studios oder Microsoft verbunden.</p>
-      </div>
-      <div class="footer-server">
-        <span>Direkt verbinden</span>
-        <button class="footer-address copy-address" type="button" data-copy="VanillaLichtung.de">VanillaLichtung.de <span>⧉</span></button>
-      </div>
-      <nav class="footer-links" aria-label="Rechtliches und externe Links">
-        <a href="impressum.html">Kontakt &amp; Projektangaben</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="https://discord.gg/wDB4ukjXA" target="_blank" rel="noopener noreferrer">Discord ↗</a>
-      </nav>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="current-year">2026</span> VanillaLichtung</span>
-      <a href="#top">Nach oben ↑</a>
-    </div>
-  </footer>
-
-  <div class="toast" id="copy-toast" role="status" aria-live="polite">Serveradresse kopiert</div>
-  <script src="script.js" defer></script>
-</body>
-</html>
+- `assets/server-icon.png`: großes Server-Icon für die Website
+- `assets/server-icon-64.png`: kompaktes Icon für Navigation und Footer
+- `assets/hero-lichtung.webp`: optimierter Hintergrund ohne Schrift
+- `assets/social-preview.png`: Vorschaugrafik beim Teilen der Website
+- `assets/favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`: Browser- und Geräteicons

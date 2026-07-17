@@ -47,12 +47,11 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-image" src="assets/scene-hero.webp" alt="Dorfplatz auf VanillaLichtung bei Sonnenuntergang" fetchpriority="high">
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-glow" aria-hidden="true"></div>
-
-      <div class="container hero-layout">
+    <section class="hero hero-framed" aria-labelledby="hero-title">
+      <div class="hero-ambient" aria-hidden="true">
+        <img src="assets/scene-hero.webp" alt="">
+      </div>
+      <div class="container hero-shell">
         <div class="hero-copy reveal visible">
           <div class="hero-kicker">
             <img src="assets/server-icon-64.png" width="50" height="50" alt="Server-Icon von VanillaLichtung">
@@ -74,6 +73,14 @@
           </div>
         </div>
 
+        <figure class="hero-media reveal visible">
+          <img src="assets/scene-hero.webp" width="2048" height="1085" alt="Dorfplatz auf VanillaLichtung bei Sonnenuntergang" fetchpriority="high">
+          <figcaption>
+            <span>Echte Aufnahme vom Server</span>
+            <strong>VanillaLichtung bei Sonnenuntergang</strong>
+          </figcaption>
+        </figure>
+
         <aside class="hero-console reveal visible" aria-label="Serverzugang">
           <div class="console-topline"><span>Serverzugang</span><i aria-hidden="true"></i></div>
           <strong>VanillaLichtung.de</strong>
@@ -84,13 +91,13 @@
             <button id="load-status" type="button">Live-Status laden</button>
           </div>
         </aside>
-      </div>
 
-      <div class="hero-bottom container" aria-label="Wichtige Servermerkmale">
-        <article><strong>32</strong><span>Chunks Sichtweite</span></article>
-        <article><strong>15</strong><span>Claim-Chunks zum Start</span></article>
-        <article><strong>+1</strong><span>Claim je 90 Minuten</span></article>
-        <article><strong>PvE</strong><span>Kooperatives Survival</span></article>
+        <div class="hero-bottom" aria-label="Wichtige Servermerkmale">
+          <article><strong>32</strong><span>Chunks Sichtweite</span></article>
+          <article><strong>15</strong><span>Claim-Chunks zum Start</span></article>
+          <article><strong>+1</strong><span>Claim je 90 Minuten</span></article>
+          <article><strong>PvE</strong><span>Kooperatives Survival</span></article>
+        </div>
       </div>
     </section>
 
@@ -109,9 +116,14 @@
 
     <section class="concept-stage section-dark">
       <div class="concept-noise" aria-hidden="true"></div>
-      <div class="container concept-grid">
+      <div class="container concept-wrap">
+        <div class="concept-intro reveal">
+          <span class="eyebrow">Weite, Schutz und echtes Survival</span>
+          <h2>Die Technik bleibt im Hintergrund.<br><span>Die Welt steht im Vordergrund.</span></h2>
+        </div>
+
         <figure class="concept-visual reveal">
-          <img src="assets/scene-monument.webp" alt="Große Felsformation bei Sonnenaufgang auf VanillaLichtung" loading="lazy" decoding="async">
+          <img src="assets/scene-monument.webp" width="2048" height="1085" alt="Große Felsformation bei Sonnenaufgang auf VanillaLichtung" loading="lazy" decoding="async">
           <button type="button" data-lightbox="assets/scene-monument.webp" data-caption="Felsformation bei Sonnenaufgang auf VanillaLichtung" aria-label="Bild groß ansehen">Bild öffnen ↗</button>
           <figcaption><span>Weite statt Nebelwand</span><strong>Bis zu 32 Chunks Sichtweite</strong></figcaption>
         </figure>
@@ -143,15 +155,19 @@
     </section>
 
     <section class="world-cinema" id="welt">
-      <img src="assets/scene-night.webp" alt="Mondnacht über dem Meer mit beleuchtetem Steg auf VanillaLichtung" loading="lazy" decoding="async">
-      <div class="world-cinema-overlay" aria-hidden="true"></div>
-      <div class="container world-cinema-copy reveal">
-        <span class="eyebrow">Echte Aufnahme vom Server</span>
-        <h2>Die Welt endet nicht<br>am nächsten Chunk.</h2>
-        <p>Weite Horizonte, ruhige Küsten und Lichtpunkte in der Ferne. Sichtweite ist hier kein technischer Wert, sondern Teil der Atmosphäre.</p>
-        <button class="image-link" type="button" data-lightbox="assets/scene-night.webp" data-caption="Mondnacht an der Küste von VanillaLichtung">Aufnahme groß ansehen <span>↗</span></button>
+      <div class="container world-wrap">
+        <div class="world-heading reveal">
+          <span class="eyebrow">Echte Aufnahme vom Server</span>
+          <h2>Die Welt endet nicht<br>am nächsten Chunk.</h2>
+          <p>Weite Horizonte, ruhige Küsten und Lichtpunkte in der Ferne. Sichtweite ist hier kein technischer Wert, sondern Teil der Atmosphäre.</p>
+        </div>
+
+        <figure class="world-media reveal">
+          <img src="assets/scene-night.webp" width="2048" height="1085" alt="Mondnacht über dem Meer mit beleuchtetem Steg auf VanillaLichtung" loading="lazy" decoding="async">
+          <button class="image-link" type="button" data-lightbox="assets/scene-night.webp" data-caption="Mondnacht an der Küste von VanillaLichtung">Aufnahme groß ansehen <span>↗</span></button>
+          <figcaption>„Ruhig spielen. Gemeinsam wachsen.“</figcaption>
+        </figure>
       </div>
-      <div class="world-quote reveal"><span>„Ruhig spielen. Gemeinsam wachsen.“</span></div>
     </section>
 
     <section class="daylight section">
@@ -169,7 +185,7 @@
         </div>
 
         <figure class="daylight-image reveal">
-          <img src="assets/scene-coast.webp" alt="Helle Küste mit Steg und weitem Blick über das Meer auf VanillaLichtung" loading="lazy" decoding="async">
+          <img src="assets/scene-coast.webp" width="1600" height="848" alt="Helle Küste mit Steg und weitem Blick über das Meer auf VanillaLichtung" loading="lazy" decoding="async">
           <button type="button" data-lightbox="assets/scene-coast.webp" data-caption="Küstenblick auf VanillaLichtung" aria-label="Bild groß ansehen">↗</button>
           <figcaption><strong>VanillaLichtung</strong><span>Echte Weltaufnahme · Juli 2026</span></figcaption>
         </figure>

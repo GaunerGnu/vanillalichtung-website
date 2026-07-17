@@ -29,7 +29,7 @@
   }));
 
   let toastTimer;
-  const showToast = (message) => {
+  const showToast = message => {
     if (!toast) return;
     toast.textContent = message;
     toast.classList.add('show');
@@ -104,7 +104,7 @@
     }
   });
 
-  const observer = 'IntersectionObserver' in window
+  const revealObserver = 'IntersectionObserver' in window
     ? new IntersectionObserver((entries, instance) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -117,9 +117,21 @@
 
   document.querySelectorAll('.reveal').forEach(element => {
     if (element.classList.contains('visible')) return;
-    if (observer) observer.observe(element);
+    if (revealObserver) revealObserver.observe(element);
     else element.classList.add('visible');
   });
+
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const navLinks = [...document.querySelectorAll('.main-nav a[href^="#"]')];
+  if ('IntersectionObserver' in window && sections.length) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+    sections.forEach(section => sectionObserver.observe(section));
+  }
 
   const lightbox = document.getElementById('image-lightbox');
   const lightboxImage = lightbox?.querySelector('img');
@@ -136,7 +148,8 @@
   document.querySelectorAll('[data-lightbox]').forEach(button => button.addEventListener('click', () => {
     if (!lightbox || !lightboxImage) return;
     lightboxImage.src = button.dataset.lightbox || '';
-    lightboxImage.alt = button.closest('.editorial-image, .world-panel')?.querySelector('img')?.alt || '';
+    const nearbyImage = button.closest('figure, section')?.querySelector('img');
+    lightboxImage.alt = nearbyImage?.alt || '';
     if (lightboxCaption) lightboxCaption.textContent = button.dataset.caption || '';
     lightbox.hidden = false;
     lightbox.setAttribute('aria-hidden', 'false');

@@ -125,6 +125,41 @@
     else element.classList.add('visible');
   });
 
+
+
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImage = lightbox?.querySelector('img');
+  const lightboxCaption = lightbox?.querySelector('figcaption');
+  const lightboxClose = lightbox?.querySelector('.lightbox-close');
+
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+  };
+
+  document.querySelectorAll('[data-lightbox]').forEach(button => {
+    button.addEventListener('click', () => {
+      if (!lightbox || !lightboxImage) return;
+      lightboxImage.src = button.dataset.lightbox || '';
+      lightboxImage.alt = button.querySelector('img')?.alt || '';
+      if (lightboxCaption) lightboxCaption.textContent = button.dataset.caption || '';
+      lightbox.hidden = false;
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+      lightboxClose?.focus();
+    });
+  });
+
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', event => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && lightbox && !lightbox.hidden) closeLightbox();
+  });
+
   const year = document.getElementById('current-year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();

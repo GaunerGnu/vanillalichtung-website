@@ -82,7 +82,7 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .nav-toggle span { display: block; width: 100%; height: 2px; margin: 4px 0; background: #fff; border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
 
 .hero { position: relative; min-height: 850px; display: grid; align-items: center; overflow: hidden; background: #0b1510; isolation: isolate; }
-.hero::after { content: ""; position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(90deg, rgba(7,15,10,.97) 0%, rgba(7,15,10,.91) 37%, rgba(7,15,10,.65) 67%, rgba(7,15,10,.74) 100%), linear-gradient(180deg, rgba(7,15,10,.22) 0%, rgba(7,15,10,.28) 58%, #0d1712 100%), url("assets/hero-lichtung.webp"); background-position: center center; background-size: cover; transform: scale(1.015); }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: 0; background-image: linear-gradient(90deg, rgba(7,15,10,.97) 0%, rgba(7,15,10,.91) 37%, rgba(7,15,10,.65) 67%, rgba(7,15,10,.74) 100%), linear-gradient(180deg, rgba(7,15,10,.22) 0%, rgba(7,15,10,.28) 58%, #0d1712 100%), url("assets/welt-spawn-sonnenuntergang.webp"); background-position: center center; background-size: cover; transform: scale(1.015); }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background-image: linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px); background-size: 48px 48px; mask-image: linear-gradient(to bottom, #000 0%, transparent 88%); }
 .hero-glow { position: absolute; border-radius: 50%; filter: blur(40px); opacity: .24; pointer-events: none; }
 .hero-glow-one { width: 550px; height: 550px; background: #4fbd68; top: 18%; right: -180px; }
@@ -373,3 +373,164 @@ details[open] .summary-icon { transform: rotate(45deg); }
 @media (prefers-reduced-motion: reduce) {
   .hero::after { transform: none; }
 }
+
+
+/* ---------------------------------------------------------
+   VanillaLichtung – moderner Bild-Build 2026
+   Ergänzt den bestehenden, funktionierenden Aufbau.
+   --------------------------------------------------------- */
+:root {
+  --bg: #07110c;
+  --bg-soft: #0d1b13;
+  --panel: #112319;
+  --panel-2: #172d20;
+  --light: #f4f0e6;
+  --light-2: #e7eadc;
+  --ink: #102018;
+  --ink-soft: #58645b;
+  --green: #a8d66f;
+  --green-strong: #79b85b;
+  --mint: #dcefc4;
+  --sand: #ead7a7;
+  --sun: #f0b94f;
+  --line: rgba(255,255,255,.13);
+  --line-dark: rgba(16,32,24,.12);
+  --shadow: 0 28px 90px rgba(4,12,7,.27);
+  --container: min(1240px, calc(100% - 44px));
+}
+
+body { background: #07110c; }
+.site-header { top: 12px; left: 50%; right: auto; width: min(1240px, calc(100% - 28px)); transform: translateX(-50%); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(6,15,10,.72); box-shadow: 0 18px 60px rgba(0,0,0,.18); }
+.site-header.scrolled { background: rgba(6,15,10,.92); border-color: rgba(255,255,255,.14); }
+.nav-wrap { min-height: 66px; padding-inline: 16px; }
+.brand-icon { border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.38), 0 0 0 1px rgba(213,235,165,.18); }
+.main-nav { gap: 24px; }
+.main-nav a { position: relative; }
+.main-nav a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -7px; height: 2px; border-radius: 2px; background: var(--sun); transition: right .2s ease; }
+.main-nav a:not(.nav-cta):hover::after { right: 0; }
+.main-nav .nav-cta { padding: 11px 18px; background: linear-gradient(135deg, #f3c35a, #d99a2d); color: #241909; box-shadow: 0 9px 24px rgba(236,176,62,.22); }
+.main-nav .nav-cta:hover { background: linear-gradient(135deg, #ffd778, #eaae3e); }
+
+.hero { min-height: 920px; background: #07110c; }
+.hero::after { background-image:
+  linear-gradient(90deg, rgba(4,12,8,.96) 0%, rgba(4,12,8,.86) 35%, rgba(4,12,8,.39) 66%, rgba(4,12,8,.7) 100%),
+  linear-gradient(180deg, rgba(4,12,8,.12) 0%, rgba(4,12,8,.15) 58%, #07110c 100%),
+  url("assets/welt-spawn-sonnenuntergang.webp");
+  background-position: center center;
+  filter: saturate(.94) contrast(1.04);
+  transform: scale(1.025);
+}
+.hero::before { opacity: .58; }
+.hero-grid { grid-template-columns: minmax(0, 1.18fr) minmax(390px, .82fr); gap: 72px; }
+.hero h1 { max-width: 830px; text-wrap: balance; text-shadow: 0 12px 42px rgba(0,0,0,.35); }
+.hero h1 span { color: #f0cb75; }
+.hero-lead { color: #d2d9d3; }
+.eyebrow { color: #f0db9f; }
+.pulse-dot { background: var(--sun); box-shadow: 0 0 0 6px rgba(240,185,79,.14); }
+.button-primary { background: linear-gradient(135deg, #f2c45b, #d99e33); color: #241909; box-shadow: 0 14px 34px rgba(219,158,51,.2); }
+.button-primary:hover { background: linear-gradient(135deg, #ffd977, #e8ad42); }
+.button-secondary { background: rgba(8,22,14,.45); backdrop-filter: blur(12px); }
+.hero-meta span { background: rgba(7,17,12,.28); backdrop-filter: blur(9px); }
+.hero-panel { border-color: rgba(240,211,142,.2); background: linear-gradient(145deg, rgba(14,31,21,.82), rgba(5,14,9,.7)); box-shadow: 0 35px 100px rgba(0,0,0,.46); }
+.server-identity { background: radial-gradient(circle at 16% 18%, rgba(240,185,79,.14), transparent 42%), rgba(4,13,8,.55); }
+.server-emblem { box-shadow: 0 28px 70px rgba(0,0,0,.46), 0 0 0 1px rgba(255,255,255,.17); }
+.identity-kicker, .feature-tag, .step-index, .mini-copy, .mini-link { color: #e8c775; }
+.identity-stats { border-color: rgba(255,255,255,.11); }
+.identity-stats div { background: rgba(4,13,8,.72); }
+.status-online { background: #9edb73; }
+
+.announcement { background: linear-gradient(135deg, #f2ca73, #dcb054); box-shadow: 0 25px 70px rgba(42,26,5,.22); }
+.section-light { background: radial-gradient(circle at 90% 0%, rgba(177,199,135,.18), transparent 32%), #f4f0e6; }
+.feature-card { box-shadow: 0 12px 40px rgba(42,55,43,.05); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.feature-card:hover { transform: translateY(-4px); border-color: rgba(85,118,73,.28); box-shadow: 0 20px 55px rgba(42,55,43,.1); }
+.feature-card-wide { background: linear-gradient(135deg, #0b1b12, #193222); box-shadow: 0 25px 70px rgba(12,28,18,.2); }
+.feature-number { color: #e6bd5b; text-shadow: 14px 14px 0 rgba(230,189,91,.08); }
+.feature-icon { background: #e6ead7; color: #506f40; }
+.principles { background: rgba(255,255,255,.32); }
+
+.world-section { position: relative; overflow: hidden; background: #07110c; color: #f4f7f2; }
+.world-section::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 15% 8%, rgba(128,182,90,.13), transparent 30%), radial-gradient(circle at 85% 78%, rgba(230,170,69,.09), transparent 26%); }
+.world-heading { position: relative; display: grid; grid-template-columns: 1.08fr .72fr; align-items: end; gap: 80px; margin-bottom: 42px; }
+.world-heading h2 { margin: 10px 0 0; max-width: 790px; font-size: clamp(44px, 5.8vw, 76px); line-height: .98; letter-spacing: -.06em; text-wrap: balance; }
+.world-heading p { margin: 0 0 7px; color: #a9b7ad; font-size: 18px; }
+.world-section .kicker { color: #d7b45b; }
+.world-gallery { position: relative; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(310px, .75fr); grid-template-rows: repeat(2, minmax(245px, 1fr)); gap: 16px; }
+.world-shot { position: relative; min-height: 0; padding: 0; border: 1px solid rgba(255,255,255,.13); border-radius: 25px; overflow: hidden; background: #0c1811; color: #fff; cursor: zoom-in; box-shadow: 0 25px 75px rgba(0,0,0,.28); text-align: left; }
+.world-shot-main { grid-row: 1 / 3; min-height: 590px; }
+.world-shot-side { min-height: 285px; }
+.world-shot img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
+.world-shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 36%, rgba(3,10,6,.86) 100%); pointer-events: none; }
+.world-shot:hover img { transform: scale(1.035); filter: saturate(1.08); }
+.world-shot-overlay { position: absolute; z-index: 2; left: 25px; right: 25px; bottom: 22px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 7px 16px; }
+.world-shot-overlay small { grid-column: 1 / -1; color: #e3c46e; font-size: 11px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.world-shot-overlay strong { max-width: 540px; font-size: clamp(21px, 2.6vw, 34px); line-height: 1.04; letter-spacing: -.04em; }
+.world-shot-side .world-shot-overlay strong { font-size: clamp(20px, 2vw, 27px); }
+.world-shot-overlay i { color: #d5ddd7; font-size: 12px; font-style: normal; font-weight: 800; white-space: nowrap; }
+.world-note { position: relative; display: flex; align-items: center; gap: 17px; margin-top: 17px; padding: 20px 23px; border: 1px solid rgba(255,255,255,.12); border-radius: 20px; background: rgba(255,255,255,.045); }
+.world-note img { flex: 0 0 auto; border-radius: 13px; }
+.world-note div { display: flex; flex-direction: column; }
+.world-note strong { color: #fff; }
+.world-note span { color: #9eada2; font-size: 14px; }
+
+.section-dark { background: linear-gradient(180deg, #0c1a12, #08110c); }
+.step { background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); transition: transform .25s ease, border-color .25s ease; }
+.step:hover { transform: translateY(-4px); border-color: rgba(232,199,117,.28); }
+.join-callout { background: linear-gradient(135deg, #193222, #0e2116); border-color: rgba(232,199,117,.22); }
+
+.community-section { background: linear-gradient(135deg, #b8d889, #9fca73); }
+.community-card { box-shadow: 0 14px 45px rgba(34,63,33,.08); }
+.site-footer { background: #050b07; }
+
+.lightbox[hidden] { display: none; }
+.lightbox { position: fixed; z-index: 500; inset: 0; display: grid; place-items: center; padding: 30px; background: rgba(2,7,4,.92); backdrop-filter: blur(14px); }
+.lightbox figure { width: min(1320px, 100%); margin: 0; }
+.lightbox img { width: 100%; max-height: 82vh; display: block; object-fit: contain; border: 1px solid rgba(255,255,255,.15); border-radius: 24px; box-shadow: 0 35px 120px rgba(0,0,0,.65); }
+.lightbox figcaption { margin-top: 13px; color: #bdc9c0; text-align: center; font-size: 14px; }
+.lightbox-close { position: fixed; top: 24px; right: 28px; width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; cursor: pointer; font-size: 30px; line-height: 1; }
+body.lightbox-open { overflow: hidden; }
+
+@media (max-width: 980px) {
+  .site-header { top: 8px; }
+  .hero { min-height: auto; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .world-heading { grid-template-columns: 1fr; gap: 18px; }
+  .world-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+  .world-shot-main { grid-column: 1 / -1; grid-row: auto; min-height: 500px; }
+  .world-shot-side { min-height: 300px; }
+}
+
+@media (max-width: 760px) {
+  .site-header { width: calc(100% - 18px); top: 7px; border-radius: 15px; }
+  .main-nav { inset: 80px 10px auto; }
+  .section-pad { padding-top: 126px; }
+  .hero::after { background-position: 56% center; }
+  .world-gallery { grid-template-columns: 1fr; }
+  .world-shot-main, .world-shot-side { min-height: 330px; grid-column: auto; }
+  .world-shot-overlay { left: 19px; right: 19px; bottom: 18px; grid-template-columns: 1fr; }
+  .world-shot-overlay i { display: none; }
+  .world-note { align-items: flex-start; }
+  .lightbox { padding: 15px; }
+  .lightbox-close { top: 13px; right: 13px; }
+}
+
+@media (max-width: 430px) {
+  .world-shot-main, .world-shot-side { min-height: 265px; }
+  .world-shot-overlay strong { font-size: 21px; }
+}
+
+/* Sichere Bildfüllung der Galerie in allen Browsern */
+.world-shot img { position: absolute; inset: 0; z-index: 0; }
+.world-shot::after { z-index: 1; }
+.world-shot::after { background: linear-gradient(to bottom, rgba(3,10,6,0) 0%, rgba(3,10,6,.06) 52%, rgba(3,10,6,.86) 100%); }
+.world-shot::after { display: none; }
+.world-shot-overlay {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 90px 25px 22px;
+  background: linear-gradient(to bottom, rgba(3,10,6,0), rgba(3,10,6,.9));
+}
+@media (max-width: 760px) {
+  .world-shot-overlay { left: 0; right: 0; bottom: 0; padding: 76px 19px 18px; }
+}
+.world-shot img { z-index: auto; }

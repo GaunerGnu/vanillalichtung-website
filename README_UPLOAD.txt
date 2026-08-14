@@ -25,10 +25,29 @@ ENTHALTEN
 - vollständig neu gestaltete responsive Startseite
 - 30 Claim-Chunks zum Start und +1 je 90 Minuten
 - End-Öffnung: Samstag, 05.09.2026, 18:00 Uhr
-- dynamischer Countdown, Kopierfunktion und optionaler Live-Status
+- automatische End-Ankündigung: Countdown vor dem Termin, sieben Tage „geöffnet“, danach vollständig ausgeblendet
+- Kopierfunktion und optionaler Live-Status
 - Kontakt, Datenschutz, 404-Seite, Suchmaschinen- und Social-Media-Metadaten
 - alle benötigten Bilder, Icons und GitHub-Pages-Dateien
 
 Die Website lädt keine externen Schriftarten, Tracker oder Werbenetzwerke. Der externe Serverstatus wird aus Datenschutzgründen erst nach einem bewussten Klick abgefragt.
+
+EINMALIG IM GITHUB-REPOSITORY AUFRÄUMEN
+----------------------------------------
+Im aktuellen Repository liegen einige versehentlich doppelt hochgeladene Dateien. Sie werden von der Website nicht benötigt und können nach dem Upload gelöscht werden:
+
+- apple-touch-icon (1).png
+- favicon-16 (2).png
+- favicon-32 (3).png
+- download
+- scene-coast.webp
+- scene-hero.webp
+- scene-monument.webp
+- scene-night.webp
+- server-icon-64.png
+- server-icon.png
+- social-preview.png
+
+Die gleichnamigen Dateien im Ordner „assets“ bleiben erhalten. Die normalen Dateien apple-touch-icon.png, favicon-16.png und favicon-32.png auf der obersten Ebene ebenfalls behalten.
 
 Hinweis: Die bereitgestellten Kontakt- und Datenschutztexte ersetzen keine individuelle Rechtsberatung.

@@ -117,24 +117,51 @@
     }
   });
 
-  const countdown = document.getElementById('countdown');
-  if (countdown) {
-    const target = new Date(countdown.dataset.target || '').getTime();
+  const eventSection = document.querySelector('[data-event-section]');
+  if (eventSection) {
+    const countdown = eventSection.querySelector('#countdown');
+    const openAt = new Date(eventSection.dataset.openAt || '').getTime();
+    const archiveAt = new Date(eventSection.dataset.archiveAt || '').getTime();
     const fields = {
-      days: countdown.querySelector('[data-days]'),
-      hours: countdown.querySelector('[data-hours]'),
-      minutes: countdown.querySelector('[data-minutes]'),
-      seconds: countdown.querySelector('[data-seconds]')
+      days: countdown?.querySelector('[data-days]'),
+      hours: countdown?.querySelector('[data-hours]'),
+      minutes: countdown?.querySelector('[data-minutes]'),
+      seconds: countdown?.querySelector('[data-seconds]')
     };
     const pad = value => String(value).padStart(2, '0');
     let countdownTimer;
+    let archiveTimer;
+
+    const hideEvent = () => {
+      eventSection.hidden = true;
+      window.clearInterval(countdownTimer);
+      window.clearInterval(archiveTimer);
+    };
+
+    const showOpenState = () => {
+      eventSection.classList.add('is-open');
+      window.clearInterval(countdownTimer);
+      if (countdown) countdown.hidden = true;
+      const openNote = eventSection.querySelector('[data-event-open-note]');
+      if (openNote) openNote.hidden = false;
+      const dateLabel = eventSection.querySelector('[data-event-date-label]');
+      const kicker = eventSection.querySelector('[data-event-kicker]');
+      const titleLineOne = eventSection.querySelector('[data-event-title-line-1]');
+      const titleLineTwo = eventSection.querySelector('[data-event-title-line-2]');
+      const description = eventSection.querySelector('[data-event-description]');
+      const ctaLabel = eventSection.querySelector('[data-event-cta-label]');
+      if (dateLabel) dateLabel.textContent = 'Geöffnet am';
+      if (kicker) kicker.textContent = 'Jetzt Teil der Welt';
+      if (titleLineOne) titleLineOne.textContent = 'Das End';
+      if (titleLineTwo) titleLineTwo.textContent = 'ist offen.';
+      if (description) description.textContent = 'Das gemeinsame Abenteuer hat begonnen. Endstädte, Elytren und neue Projekte sind jetzt Teil des normalen Survival-Fortschritts.';
+      if (ctaLabel) ctaLabel.textContent = 'Zur Community auf Discord';
+    };
 
     const updateCountdown = () => {
-      const distance = target - Date.now();
-      if (!Number.isFinite(target) || distance <= 0) {
-        countdown.classList.add('open');
-        countdown.setAttribute('aria-label', 'Das End ist geöffnet');
-        window.clearInterval(countdownTimer);
+      const distance = openAt - Date.now();
+      if (distance <= 0) {
+        showOpenState();
         return;
       }
       const days = Math.floor(distance / 86400000);
@@ -145,11 +172,28 @@
       if (fields.hours) fields.hours.textContent = pad(hours);
       if (fields.minutes) fields.minutes.textContent = pad(minutes);
       if (fields.seconds) fields.seconds.textContent = pad(seconds);
-      countdown.setAttribute('aria-label', `${days} Tage, ${hours} Stunden und ${minutes} Minuten bis zur End-Öffnung`);
+      countdown?.setAttribute('aria-label', `${days} Tage, ${hours} Stunden und ${minutes} Minuten bis zur Öffnung des Ends`);
     };
 
-    updateCountdown();
-    countdownTimer = window.setInterval(updateCountdown, 1000);
+    if (!Number.isFinite(openAt) || !Number.isFinite(archiveAt) || archiveAt <= openAt) {
+      console.warn('Die Zeitsteuerung der End-Ankündigung ist ungültig.');
+      hideEvent();
+    } else if (Date.now() >= archiveAt) {
+      hideEvent();
+    } else {
+      eventSection.hidden = false;
+      if (Date.now() >= openAt) showOpenState();
+      else {
+        updateCountdown();
+        countdownTimer = window.setInterval(updateCountdown, 1000);
+      }
+      if (window.location.hash === '#end') {
+        window.requestAnimationFrame(() => eventSection.scrollIntoView({ block: 'start' }));
+      }
+      archiveTimer = window.setInterval(() => {
+        if (Date.now() >= archiveAt) hideEvent();
+      }, 60000);
+    }
   }
 
   const revealObserver = 'IntersectionObserver' in window

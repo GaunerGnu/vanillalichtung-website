@@ -1,10 +1,9 @@
-VanillaLichtung – sicheres Website-Update
+VanillaLichtung – Website-Update 14.08.2026
 
-Nur diese Elemente in das Hauptverzeichnis des GitHub-Repositories hochladen:
-- index.html
-- styles.css
-- script.js
-- assets/ (die drei neuen WebP-Bilder)
+Dieses Paket kann als vollständiger Stand des GitHub-Pages-Repositories verwendet werden.
 
-Dieses Update enthält absichtlich KEINE CNAME-Datei, keine Rechteseiten und keine Server-Icon-Dateien.
-DNS, STRATO, GitHub Pages, Custom Domain und HTTPS nicht verändern.
+Wichtig:
+- CNAME unverändert lassen: www.vanillalichtung.de
+- keine DNS-, STRATO-, Server-IP- oder Minecraft-Port-Einstellungen ändern
+- index.html muss im Hauptverzeichnis des Repositories liegen
+- vollständige Hinweise stehen in README_EINRICHTUNG.md

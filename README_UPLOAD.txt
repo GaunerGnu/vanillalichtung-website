@@ -1,10 +1,13 @@
-VanillaLichtung – sicheres Website-Update
+VanillaLichtung – GitHub-Pages-Upload
 
-Auf GitHub nur den Inhalt dieses Ordners hochladen:
-- index.html
-- styles.css
-- script.js
-- assets/
+Dieses Paket enthält den vollständigen Website-Stand.
 
-Das Paket enthält keine CNAME-Datei, keine DNS-Einstellungen, keine Rechteseiten und keine Server-Icons.
-STRATO, GitHub Pages, Custom Domain und HTTPS nicht ändern.
+Für ein vollständiges Update den gesamten Inhalt dieses Ordners in das bestehende GitHub-Repository übernehmen.
+Wichtig: index.html und CNAME müssen direkt im Hauptverzeichnis liegen.
+
+Nicht ändern:
+- STRATO-/DNS-Einstellungen
+- Minecraft-Server-IP oder Port
+- CNAME-Inhalt: www.vanillalichtung.de
+
+Weitere Hinweise: README_EINRICHTUNG.md

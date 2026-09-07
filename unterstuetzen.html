@@ -68,14 +68,12 @@
 
       <div class="support-checkout reveal">
         <span class="support-step-label">Checkout starten</span>
-        <h2>Welcher Minecraft-Account soll den Status erhalten?</h2>
+        <h2>Förderer-Status sicher aktivieren.</h2>
         <form id="support-form" novalidate>
-          <label for="minecraft-name">Minecraft-Java-Name</label>
-          <div class="support-input-row">
-            <input id="minecraft-name" name="minecraft-name" type="text" inputmode="text" autocomplete="off" minlength="3" maxlength="16" pattern="[A-Za-z0-9_]{3,16}" placeholder="DeinSpielername" required aria-describedby="support-name-help">
-            <button class="button button-primary" id="support-submit" type="submit"><span class="button-label">Sicher zum Checkout</span><span aria-hidden="true">↗</span></button>
-          </div>
-          <small id="support-name-help">Der Status wird automatisch genau diesem Minecraft-Account zugeordnet.</small>
+          <button class="button button-primary support-start-button" id="support-submit" type="submit">
+            <span class="button-label">Förderer werden</span><span aria-hidden="true">↗</span>
+          </button>
+          <small id="support-name-help">Im nächsten Schritt bestätigst du deinen Minecraft-Java-Account direkt bei Tebex. Danach wählst du Einmalzahlung oder monatliche Unterstützung.</small>
         </form>
         <p class="support-status" id="support-status" role="status" aria-live="polite"></p>
         <div class="support-trust">

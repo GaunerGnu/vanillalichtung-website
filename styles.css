@@ -546,3 +546,17 @@ main section[id] { scroll-margin-top: 68px; }
   .support-price strong { font-size: 68px; }
   .support-context-facts > div { grid-template-columns: 1fr; gap: 7px; }
 }
+
+/* Förderer-Checkout: schlanker Headless-Flow über Tebex */
+.support-start-button {
+  width: 100%;
+  min-height: 58px;
+  margin-top: 26px;
+  justify-content: center;
+  border-radius: 4px;
+}
+.support-checkout form > small {
+  max-width: 680px;
+  margin-top: 12px;
+  line-height: 1.6;
+}

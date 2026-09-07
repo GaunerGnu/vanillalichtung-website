@@ -502,9 +502,9 @@ main section[id] { scroll-margin-top: 68px; }
 .support-status { min-height: 24px; margin: 18px 0 0; color: #5e665c; font-size: 12px; font-weight: 700; }
 .support-status[data-type="error"] { color: #a1362a; }
 .support-status[data-type="success"] { color: #526f2f; }
-.support-trust { display: grid; gap: 1px; margin-top: 34px; background: var(--line-light); }
-.support-trust > div { display: grid; grid-template-columns: 30px 1fr; gap: 12px; padding: 18px; background: var(--paper); }
-.support-trust > div > span { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 50%; background: #d9e8ae; color: #3c5622; font-size: 12px; font-weight: 900; }
+.support-trust { display: grid; gap: 1px; margin-top: 34px; background: rgba(26, 34, 19, .12); }
+.support-trust > div { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 18px; background: rgba(255, 255, 255, .06); }
+.support-trust > div > span { display: grid; width: 26px; height: 26px; place-items: center; border-radius: 50%; background: #d6e2cc; border: 1px solid #b7c7a8; color: #3d5c2a; font-size: 12px; font-weight: 900; }
 .support-trust p { margin: 0; }
 .support-trust strong, .support-trust small { display: block; }
 .support-trust strong { font-size: 12px; }
@@ -589,4 +589,11 @@ main section[id] { scroll-margin-top: 68px; }
   width: 100%;
   justify-content: center;
   margin: 3px 0 10px;
+  background: #bfd86b;
+  color: #151b10;
+  border-color: #bfd86b;
+}
+.support-checkout-button:hover {
+  background: #cbe47a;
+  border-color: #cbe47a;
 }

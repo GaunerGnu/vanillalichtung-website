@@ -1,19 +1,17 @@
 (() => {
   'use strict';
 
-  const TOKEN = String(window.VL_TEBEX?.publicToken || '').trim();
-  const PACKAGE_ID = '7661046';
-  const API = 'https://headless.tebex.io/api';
-
   const form = document.getElementById('support-form');
+  const usernameInput = document.getElementById('minecraft-name');
   const submitButton = document.getElementById('support-submit');
   const status = document.getElementById('support-status');
   const manageButton = document.getElementById('manage-subscription');
 
-  const PENDING_KEY = 'vl_tebex_basket_v2';
-  const RETURN_URL = 'https://www.vanillalichtung.de/unterstuetzen.html?tebex_auth=1';
-  const COMPLETE_URL = 'https://www.vanillalichtung.de/unterstuetzen-danke.html';
-  const CANCEL_URL = 'https://www.vanillalichtung.de/unterstuetzen.html';
+  const config = window.VL_TEBEX || {};
+  const API = 'https://headless.tebex.io/api';
+  const PACKAGE_ID = '7661046';
+
+  const token = () => String(config.publicToken || '').trim();
 
   const setStatus = (message, type = 'info') => {
     if (!status) return;
@@ -26,21 +24,24 @@
     submitButton.disabled = busy;
     submitButton.setAttribute('aria-busy', String(busy));
     const label = submitButton.querySelector('.button-label');
-    if (label) label.textContent = busy ? 'Tebex wird geöffnet …' : 'Förderer werden';
+    if (label) {
+      label.textContent = busy ? 'Checkout wird vorbereitet …' : 'Sicher zum Checkout';
+    }
   };
 
-  const describe = value => {
+  const describeError = value => {
     if (value instanceof Error && value.message) return value.message;
     if (typeof value === 'string' && value.trim()) return value.trim();
     try {
-      const json = JSON.stringify(value);
-      if (json && json !== '{}') return json;
-    } catch {}
+      const text = JSON.stringify(value);
+      if (text && text !== '{}') return text;
+    } catch (_) {}
     return 'Unbekannter Fehler';
   };
 
-  async function request(url, options = {}) {
+  const requestJson = async (url, options = {}) => {
     let response;
+
     try {
       response = await fetch(url, {
         ...options,
@@ -51,25 +52,29 @@
         }
       });
     } catch (error) {
-      throw new Error(`Verbindung zu Tebex fehlgeschlagen (${describe(error)})`);
+      throw new Error(`Verbindung zu Tebex fehlgeschlagen: ${describeError(error)}`);
     }
 
     const raw = await response.text();
     let payload = null;
+
     if (raw) {
       try {
         payload = JSON.parse(raw);
-      } catch {
+      } catch (_) {
         payload = raw;
       }
     }
 
     if (!response.ok) {
       let detail = '';
+
       if (payload && typeof payload === 'object') {
         detail = payload.detail || payload.message || payload.error || '';
         if (!detail && payload.errors) {
-          try { detail = JSON.stringify(payload.errors); } catch {}
+          try {
+            detail = JSON.stringify(payload.errors);
+          } catch (_) {}
         }
       } else if (typeof payload === 'string') {
         detail = payload;
@@ -79,63 +84,37 @@
     }
 
     return payload?.data ?? payload;
-  }
+  };
 
-  async function createBasket() {
-    // Current official Tebex Headless CreateBasketRequest:
-    // only complete_url, cancel_url, custom and complete_auto_redirect.
-    const basket = await request(
-      `${API}/accounts/${encodeURIComponent(TOKEN)}/baskets`,
+  // Exact Minecraft login flow used by Tebex's official Headless Template:
+  // POST /accounts/{token}/baskets with { username }
+  const createMinecraftBasket = async username => {
+    const basket = await requestJson(
+      `${API}/accounts/${encodeURIComponent(token())}/baskets`,
       {
         method: 'POST',
-        body: JSON.stringify({
-          complete_url: COMPLETE_URL,
-          cancel_url: CANCEL_URL,
-          complete_auto_redirect: true,
-          custom: {
-            source: 'vanillalichtung.de',
-            product: 'foerderer'
-          }
-        })
+        body: JSON.stringify({ username })
       }
     );
 
     if (!basket?.ident) {
       throw new Error('Tebex hat keinen gültigen Warenkorb erstellt.');
     }
-    return basket;
-  }
 
-  async function getAuthUrl(ident) {
-    const auth = await request(
-      `${API}/accounts/${encodeURIComponent(TOKEN)}/baskets/${encodeURIComponent(ident)}/auth?returnUrl=${encodeURIComponent(RETURN_URL)}`
-    );
-
-    const methods = Array.isArray(auth) ? auth : [];
-    const method =
-      methods.find(item => /minecraft|mojang|java/i.test(String(item?.name || ''))) ||
-      methods[0];
-
-    if (!method?.url) {
-      throw new Error('Tebex hat keine Minecraft-Anmeldung zurückgegeben.');
+    if (!basket?.username_id) {
+      throw new Error(
+        'Der Minecraft-Java-Name konnte von Tebex nicht eindeutig zugeordnet werden.'
+      );
     }
-    return method.url;
-  }
 
-  async function getBasket(ident) {
-    const basket = await request(
-      `${API}/accounts/${encodeURIComponent(TOKEN)}/baskets/${encodeURIComponent(ident)}`
-    );
-    if (!basket?.ident) {
-      throw new Error('Der Tebex-Warenkorb konnte nach der Anmeldung nicht geladen werden.');
-    }
     return basket;
-  }
+  };
 
-  async function addPackage(ident) {
-    // Current official AddBasketPackageRequest only contains package_id + quantity.
-    const basket = await request(
-      `${API}/baskets/${encodeURIComponent(ident)}/packages`,
+  // Exact package-add flow used by Tebex's official Headless Template:
+  // POST /baskets/{ident}/packages with package_id + quantity.
+  const addFoerdererPackage = async basket => {
+    const updatedBasket = await requestJson(
+      `${API}/baskets/${encodeURIComponent(basket.ident)}/packages`,
       {
         method: 'POST',
         body: JSON.stringify({
@@ -145,77 +124,63 @@
       }
     );
 
-    if (!basket?.ident) {
+    if (!updatedBasket?.ident) {
       throw new Error('Tebex konnte den Förderer nicht zum Warenkorb hinzufügen.');
     }
-    return basket;
-  }
 
-  function openCheckout(basket) {
-    const checkout = basket?.links?.checkout;
-    if (!checkout) {
+    return updatedBasket;
+  };
+
+  const openCheckout = basket => {
+    const checkoutUrl = basket?.links?.checkout;
+
+    if (!checkoutUrl) {
       throw new Error('Tebex hat keinen Checkout-Link zurückgegeben.');
     }
-    window.location.assign(checkout);
-  }
 
-  async function startCheckout() {
-    if (!TOKEN || TOKEN.includes('HIER_')) {
-      setStatus('Der Tebex Public Token fehlt.', 'error');
+    window.location.assign(checkoutUrl);
+  };
+
+  form?.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    const username = String(usernameInput?.value || '').trim();
+
+    if (!token() || token().includes('HIER_')) {
+      setStatus('Der Tebex Public Token ist nicht korrekt eingetragen.', 'error');
+      return;
+    }
+
+    if (!/^[A-Za-z0-9_]{3,16}$/.test(username)) {
+      setStatus(
+        'Bitte gib einen gültigen Minecraft-Java-Namen mit 3–16 Zeichen ein.',
+        'error'
+      );
+      usernameInput?.focus();
       return;
     }
 
     setBusy(true);
-    setStatus('Sicherer Tebex-Checkout wird vorbereitet …');
+    setStatus('Minecraft-Account wird bei Tebex geprüft …');
 
     try {
-      const basket = await createBasket();
-      sessionStorage.setItem(PENDING_KEY, basket.ident);
-
-      const authUrl = await getAuthUrl(basket.ident);
-      setStatus('Weiterleitung zu Tebex …', 'success');
-      window.location.assign(authUrl);
-    } catch (error) {
-      sessionStorage.removeItem(PENDING_KEY);
-      setBusy(false);
-      setStatus(`Checkout konnte nicht gestartet werden: ${describe(error)}`, 'error');
-    }
-  }
-
-  async function continueAfterAuth() {
-    const ident = sessionStorage.getItem(PENDING_KEY);
-    if (!ident) {
-      setStatus('Die Tebex-Sitzung ist abgelaufen. Bitte starte den Checkout erneut.', 'error');
-      return;
-    }
-
-    setBusy(true);
-    setStatus('Minecraft-Account bestätigt. Checkout wird geöffnet …');
-
-    try {
-      const basket = await getBasket(ident);
-
-      if (!basket.username_id) {
-        throw new Error('Tebex hat keinen Minecraft-Account mit dem Warenkorb verknüpft.');
-      }
-
-      const updatedBasket = await addPackage(ident);
-      sessionStorage.removeItem(PENDING_KEY);
+      const basket = await createMinecraftBasket(username);
+      const updatedBasket = await addFoerdererPackage(basket);
+      setStatus('Weiterleitung zum sicheren Tebex-Checkout …', 'success');
       openCheckout(updatedBasket);
     } catch (error) {
-      sessionStorage.removeItem(PENDING_KEY);
+      console.error('Tebex Förderer-Checkout:', error);
+      setStatus(
+        `Checkout konnte nicht gestartet werden: ${describeError(error)}`,
+        'error'
+      );
       setBusy(false);
-      setStatus(`Checkout konnte nicht fortgesetzt werden: ${describe(error)}`, 'error');
     }
-  }
-
-  form?.addEventListener('submit', event => {
-    event.preventDefault();
-    startCheckout();
   });
 
-  // Existing purchase/subscription management remains available via Tebex's portal.
+  // Existing Tebex payment/subscription portal.
   let tebexLoader = null;
+
   const loadTebex = () => {
     if (window.Tebex) return Promise.resolve(window.Tebex);
     if (tebexLoader) return tebexLoader;
@@ -224,30 +189,44 @@
       const script = document.createElement('script');
       script.src = 'https://js.tebex.io/v/1.js';
       script.async = true;
-      script.onload = () => window.Tebex
-        ? resolve(window.Tebex)
-        : reject(new Error('Tebex.js wurde nicht initialisiert.'));
+
+      script.onload = () => {
+        if (window.Tebex) {
+          resolve(window.Tebex);
+        } else {
+          reject(new Error('Tebex.js wurde nicht initialisiert.'));
+        }
+      };
+
       script.onerror = () => reject(new Error('Tebex.js konnte nicht geladen werden.'));
       document.head.appendChild(script);
     });
+
     return tebexLoader;
   };
 
   manageButton?.addEventListener('click', async () => {
+    if (!token() || token().includes('HIER_')) {
+      setStatus('Der Tebex Public Token ist nicht korrekt eingetragen.', 'error');
+      return;
+    }
+
     manageButton.disabled = true;
+
     try {
       const Tebex = await loadTebex();
-      Tebex.portal.init({ token: TOKEN, theme: 'dark' });
+      Tebex.portal.init({
+        token: token(),
+        theme: 'dark'
+      });
       Tebex.portal.launch();
     } catch (error) {
-      setStatus(`Abo-Verwaltung konnte nicht geöffnet werden: ${describe(error)}`, 'error');
+      setStatus(
+        `Abo-Verwaltung konnte nicht geöffnet werden: ${describeError(error)}`,
+        'error'
+      );
     } finally {
       manageButton.disabled = false;
     }
   });
-
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('tebex_auth') === '1') {
-    continueAfterAuth();
-  }
 })();

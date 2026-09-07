@@ -1,53 +1,84 @@
-VANILLALICHTUNG – NEUE WEBSITE
-================================
+VANILLALICHTUNG – WEBSITE MIT PROFESSIONELLER FÖRDERER-INTEGRATION
+================================================================
 
-Dieses ZIP ist ein vollständiges Austauschpaket für die bestehende GitHub-Pages-Website.
+Dieses Paket basiert auf der hochgeladenen aktuellen VanillaLichtung-Website.
+Der Förderer-Kauf läuft sichtbar auf vanillalichtung.de; Tebex bleibt im Hintergrund
+für Checkout, Zahlungen, Abos, Steuern, Refunds/Chargebacks und Minecraft-Auslieferung.
+
+WAS NEU IST
+-----------
+- neue professionelle Seite: /unterstuetzen.html
+- eingebetteter Tebex-Checkout über die offizielle Headless API + Tebex.js
+- Minecraft-Name wird vor dem Checkout erfasst und an den Tebex-Warenkorb gebunden
+- Paket wird über den Slug "foerderer" automatisch gefunden; keine Paket-ID im Code nötig
+- eigener Button "Abo & Käufe verwalten" über das offizielle Tebex Payment Portal
+- klare Kennzeichnung: Förderer ist rein kosmetisch, keinerlei Gameplay-Vorteile
+- Startseite, FAQ, Discord-Link und Texte wurden an das neue Modell angepasst
+- veraltete Aussage "kein Shop" entfernt; weiterhin ausdrücklich kein Pay-to-Win
+- Kontakt-/Datenschutztexte wurden um Tebex und den Förderer-Kauf ergänzt
+- keine Tebex-Storefront muss als sichtbare Hauptwebsite verwendet werden
+
+NUR 1 WERT MUSS VOR DEM UPLOAD EINGETRAGEN WERDEN
+--------------------------------------------------
+Datei öffnen:
+  tebex-config.js
+
+Diese Zeile:
+  publicToken: "HIER_TEBEX_PUBLIC_TOKEN_EINTRAGEN",
+
+ersetzen durch deinen Tebex PUBLIC TOKEN / Webstore Identifier.
+
+Du findest ihn im Tebex Creator Panel unter:
+  Developers -> API Keys -> Public Token
+
+WICHTIG:
+- Der Public Token darf im Frontend stehen; er wird von der Headless API benötigt.
+- NIEMALS den Private Key in HTML/JS/GitHub eintragen oder irgendwo veröffentlichen.
+- packageSlug bleibt "foerderer", weil dein Tebex-Paket bereits diesen Slug besitzt.
+
+TEBEX-SEITE
+-----------
+Dein bestehendes Paket "✦ Förderer" bleibt in Tebex bestehen, inklusive:
+- 4,99 €
+- Einmalkauf oder monatlich automatisch
+- Game-Server-Commands für Kauf, Renewal, Removal, Refund und Chargeback
+- verbundenem VanillaLichtung-Game-Server
+
+Wenn die neue Website live ist und der Headless-Checkout getestet wurde:
+  Settings -> Project -> Enable Webstore Management Features
+kann für den Tebex-gehosteten Webstore deaktiviert werden, wenn du ausschließlich
+dein eigenes Frontend verwenden möchtest. Die Backend-Funktionen bleiben aktiv.
 
 UPLOAD AUF GITHUB
 -----------------
-1. ZIP auf deinem Computer vollständig entpacken.
-2. Im GitHub-Repository oben auf „Add file“ und danach „Upload files“ klicken.
-3. ALLE Dateien und den Ordner „assets“ aus dem entpackten Ordner markieren und hochladen.
-4. Die Datei index.html muss direkt auf der obersten Ebene des Repositorys liegen.
-5. Als Commit-Nachricht zum Beispiel „Neue VanillaLichtung Website“ eintragen.
-6. Auf „Commit changes“ klicken.
+1. Diese Dateien vollständig entpacken.
+2. In deinem bestehenden GitHub-Pages-Repository die Dateien dieses Pakets hochladen.
+3. index.html muss weiterhin direkt auf oberster Repository-Ebene liegen.
+4. CNAME NICHT löschen.
+5. Committen und GitHub Pages kurz aktualisieren lassen.
 
-WICHTIG
--------
-- Nicht nur die ZIP-Datei bei GitHub hochladen.
-- Nicht den äußeren Ordner als Unterordner hochladen.
-- Die Datei CNAME nicht löschen; sie verbindet www.vanillalichtung.de mit GitHub Pages.
-- DNS-Einstellungen, Server-IP, Port sowie A- und SRV-Einträge nicht verändern.
-- Alte Website-Dateien dürfen durch die Dateien dieses Pakets ersetzt werden.
+TEST VOR LIVEGANG
+-----------------
+1. Tebex Checkout Test Mode aktivieren.
+2. https://www.vanillalichtung.de/unterstuetzen.html öffnen.
+3. Einen echten Minecraft-Java-Namen eingeben.
+4. "Sicher zum Checkout" klicken.
+5. Prüfen, dass der dunkle Tebex-Checkout direkt aus der Seite heraus öffnet.
+6. Testzahlung durchführen.
+7. Prüfen, dass dein Game-Server den foerdererkauf-Befehl erhält.
+8. Förderer-Status / TAB / Chat / Monatsstand prüfen.
+9. Test Mode wieder deaktivieren.
+10. Projekt bei Tebex zur Review einreichen.
 
-ENTHALTEN
----------
-- vollständig neu gestaltete responsive Startseite
-- 30 Claim-Chunks zum Start und +1 je 90 Minuten
-- End-Öffnung: Samstag, 05.09.2026, 18:00 Uhr
-- automatische End-Ankündigung: Countdown vor dem Termin, sieben Tage „geöffnet“, danach vollständig ausgeblendet
-- Kopierfunktion und optionaler Live-Status
-- Kontakt, Datenschutz, 404-Seite, Suchmaschinen- und Social-Media-Metadaten
-- alle benötigten Bilder, Icons und GitHub-Pages-Dateien
+DATENSCHUTZ / RECHTLICHES
+-------------------------
+Die Website lädt Tebex.js erst, wenn der Nutzer den Checkout oder die Abo-Verwaltung
+bewusst startet. Die Datenschutzerklärung wurde entsprechend ergänzt.
 
-Die Website lädt keine externen Schriftarten, Tracker oder Werbenetzwerke. Der externe Serverstatus wird aus Datenschutzgründen erst nach einem bewussten Klick abgefragt.
+Die bisherige Kontaktseite nennt weiterhin keine persönlichen Betreiberdaten. Durch
+die Monetarisierung können zusätzliche gesetzliche Informationspflichten entstehen.
+Vor dem öffentlichen Livegang solltest du prüfen, welche Pflichtangaben für deinen
+konkreten Betrieb in Deutschland erforderlich sind. Es wurden bewusst keine persönlichen
+Daten ergänzt, die du nicht ausdrücklich für die Website bereitgestellt hast.
 
-EINMALIG IM GITHUB-REPOSITORY AUFRÄUMEN
-----------------------------------------
-Im aktuellen Repository liegen einige versehentlich doppelt hochgeladene Dateien. Sie werden von der Website nicht benötigt und können nach dem Upload gelöscht werden:
-
-- apple-touch-icon (1).png
-- favicon-16 (2).png
-- favicon-32 (3).png
-- download
-- scene-coast.webp
-- scene-hero.webp
-- scene-monument.webp
-- scene-night.webp
-- server-icon-64.png
-- server-icon.png
-- social-preview.png
-
-Die gleichnamigen Dateien im Ordner „assets“ bleiben erhalten. Die normalen Dateien apple-touch-icon.png, favicon-16.png und favicon-32.png auf der obersten Ebene ebenfalls behalten.
-
-Hinweis: Die bereitgestellten Kontakt- und Datenschutztexte ersetzen keine individuelle Rechtsberatung.
+Technische Grundlage: Tebex Headless API + Tebex.js. Keine Private Keys im Frontend.

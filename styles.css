@@ -509,7 +509,7 @@ main section[id] { scroll-margin-top: 68px; }
 .support-trust strong, .support-trust small { display: block; }
 .support-trust strong { font-size: 12px; }
 .support-trust small { margin-top: 4px; color: #6c746a; font-size: 11px; line-height: 1.5; }
-.support-manage { margin-top: 24px; padding: 0; border: 0; background: transparent; color: #4f672e; font-size: 11px; font-weight: 850; letter-spacing: .05em; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.support-manage { display: inline-block; margin-top: 24px; padding: 0; border: 0; background: transparent; color: #4f672e; font-size: 11px; font-weight: 850; letter-spacing: .05em; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 .support-manage:hover { color: #263817; }
 .support-manage:disabled, .support-input-row .button:disabled { opacity: .55; cursor: wait; }
 .support-legal-note { max-width: 660px; margin: 24px 0 0; color: #7b8278; font-size: 10px; line-height: 1.65; }

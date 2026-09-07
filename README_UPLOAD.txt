@@ -1,84 +1,46 @@
-VANILLALICHTUNG – WEBSITE MIT PROFESSIONELLER FÖRDERER-INTEGRATION
-================================================================
+VanillaLichtung – Website / Förderer-System
+Stand: 07.09.2026
 
-Dieses Paket basiert auf der hochgeladenen aktuellen VanillaLichtung-Website.
-Der Förderer-Kauf läuft sichtbar auf vanillalichtung.de; Tebex bleibt im Hintergrund
-für Checkout, Zahlungen, Abos, Steuern, Refunds/Chargebacks und Minecraft-Auslieferung.
+Diese ZIP enthält den vollständigen aktuellen Website-Stand inklusive des bereits erfolgreich getesteten Tebex-Checkouts.
 
-WAS NEU IST
------------
-- neue professionelle Seite: /unterstuetzen.html
-- eingebetteter Tebex-Checkout über die offizielle Headless API + Tebex.js
-- Minecraft-Name wird vor dem Checkout erfasst und an den Tebex-Warenkorb gebunden
-- Paket wird über den Slug "foerderer" automatisch gefunden; keine Paket-ID im Code nötig
-- eigener Button "Abo & Käufe verwalten" über das offizielle Tebex Payment Portal
-- klare Kennzeichnung: Förderer ist rein kosmetisch, keinerlei Gameplay-Vorteile
-- Startseite, FAQ, Discord-Link und Texte wurden an das neue Modell angepasst
-- veraltete Aussage "kein Shop" entfernt; weiterhin ausdrücklich kein Pay-to-Win
-- Kontakt-/Datenschutztexte wurden um Tebex und den Förderer-Kauf ergänzt
-- keine Tebex-Storefront muss als sichtbare Hauptwebsite verwendet werden
+WICHTIG
+- Der funktionierende Checkout läuft über support-minecraft-v12.js und wurde gegenüber dem erfolgreich getesteten Stand nicht verändert.
+- support.js wurde bewusst entfernt, damit keine alte Checkout-Version versehentlich wieder geladen wird.
+- „Abo & Käufe verwalten“ führt direkt zum offiziellen Tebex Payment-History-Portal.
+- tebex-config.js mit dem Public Token bleibt erhalten.
+- Der Tebex-Testmodus bleibt bis zur Projektfreigabe aktiviert.
+- Nach der Freigabe nur den Testmodus deaktivieren; an der Website ist dafür keine Codeänderung nötig.
 
-NUR 1 WERT MUSS VOR DEM UPLOAD EINGETRAGEN WERDEN
---------------------------------------------------
-Datei öffnen:
-  tebex-config.js
+Förderer-Design
+- Bezeichnung: ⁺ Förderer
+- Chat: <Spieler⁺> Nachricht
+- TAB: Spieler⁺
+- Nametag: Spieler⁺
+- Nur das ⁺ ist grün.
+- Gameplay und Rechte bleiben unverändert.
 
-Diese Zeile:
-  publicToken: "HIER_TEBEX_PUBLIC_TOKEN_EINTRAGEN",
+Checkout
+- 4,99 € einmalig für einen Monat oder monatlich automatisch.
+- Minecraft-Name wird vor dem Checkout angegeben.
+- Tebex ordnet die Zahlung dem Minecraft-Account zu.
+- Die bestehende Package-ID 7661046 bleibt unverändert.
+- Die serverseitigen Tebex-Commands / Förderer-Skripte bleiben unverändert.
 
-ersetzen durch deinen Tebex PUBLIC TOKEN / Webstore Identifier.
+Aktuelle Serverangaben auf der Website
+- Minecraft Java 26.2
+- bis zu 32 Chunks Sichtweite
+- 30 Start-Claim-Chunks
+- +1 Claim-Chunk je 90 Minuten Spielzeit
+- Overworld: 15.000 Blöcke Radius vorgeneriert
+- End seit 05.09.2026 geöffnet
 
-Du findest ihn im Tebex Creator Panel unter:
-  Developers -> API Keys -> Public Token
+Nach Tebex-Freigabe
+1. Settings -> Checkout -> Test Payments / Test Mode AUS.
+2. Unterstützen-Seite einmal öffnen.
+3. Prüfen, dass im Tebex-Checkout kein Hinweis auf Test Payments mehr erscheint.
+4. Danach können echte Zahlungen verarbeitet werden.
 
-WICHTIG:
-- Der Public Token darf im Frontend stehen; er wird von der Headless API benötigt.
-- NIEMALS den Private Key in HTML/JS/GitHub eintragen oder irgendwo veröffentlichen.
-- packageSlug bleibt "foerderer", weil dein Tebex-Paket bereits diesen Slug besitzt.
-
-TEBEX-SEITE
------------
-Dein bestehendes Paket "✦ Förderer" bleibt in Tebex bestehen, inklusive:
-- 4,99 €
-- Einmalkauf oder monatlich automatisch
-- Game-Server-Commands für Kauf, Renewal, Removal, Refund und Chargeback
-- verbundenem VanillaLichtung-Game-Server
-
-Wenn die neue Website live ist und der Headless-Checkout getestet wurde:
-  Settings -> Project -> Enable Webstore Management Features
-kann für den Tebex-gehosteten Webstore deaktiviert werden, wenn du ausschließlich
-dein eigenes Frontend verwenden möchtest. Die Backend-Funktionen bleiben aktiv.
-
-UPLOAD AUF GITHUB
------------------
-1. Diese Dateien vollständig entpacken.
-2. In deinem bestehenden GitHub-Pages-Repository die Dateien dieses Pakets hochladen.
-3. index.html muss weiterhin direkt auf oberster Repository-Ebene liegen.
-4. CNAME NICHT löschen.
-5. Committen und GitHub Pages kurz aktualisieren lassen.
-
-TEST VOR LIVEGANG
------------------
-1. Tebex Checkout Test Mode aktivieren.
-2. https://www.vanillalichtung.de/unterstuetzen.html öffnen.
-3. Einen echten Minecraft-Java-Namen eingeben.
-4. "Sicher zum Checkout" klicken.
-5. Prüfen, dass der dunkle Tebex-Checkout direkt aus der Seite heraus öffnet.
-6. Testzahlung durchführen.
-7. Prüfen, dass dein Game-Server den foerdererkauf-Befehl erhält.
-8. Förderer-Status / TAB / Chat / Monatsstand prüfen.
-9. Test Mode wieder deaktivieren.
-10. Projekt bei Tebex zur Review einreichen.
-
-DATENSCHUTZ / RECHTLICHES
--------------------------
-Die Website lädt Tebex.js erst, wenn der Nutzer den Checkout oder die Abo-Verwaltung
-bewusst startet. Die Datenschutzerklärung wurde entsprechend ergänzt.
-
-Die bisherige Kontaktseite nennt weiterhin keine persönlichen Betreiberdaten. Durch
-die Monetarisierung können zusätzliche gesetzliche Informationspflichten entstehen.
-Vor dem öffentlichen Livegang solltest du prüfen, welche Pflichtangaben für deinen
-konkreten Betrieb in Deutschland erforderlich sind. Es wurden bewusst keine persönlichen
-Daten ergänzt, die du nicht ausdrücklich für die Website bereitgestellt hast.
-
-Technische Grundlage: Tebex Headless API + Tebex.js. Keine Private Keys im Frontend.
+Hinweis zur Tebex-Anzeige:
+Der technische Package-Slug bleibt "foerderer". Falls im Tebex-Checkout selbst noch der alte Stern beim Förderer-Paket angezeigt wird,
+kann nach Abschluss der laufenden Review ausschließlich der sichtbare Paketname in Tebex auf "⁺ Förderer" umbenannt werden.
+Slug, Package-ID und Commands dabei nicht ändern.

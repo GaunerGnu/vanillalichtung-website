@@ -50,9 +50,21 @@
   const unwrap = payload => payload?.data ?? payload;
 
   const getPackage = async token => {
-    const payload = await getJson(`${API}/accounts/${encodeURIComponent(token)}/packages/${encodeURIComponent(config.packageSlug || 'foerderer')}`);
+    // Tebex Headless API fetches a single package by numeric package ID.
+    // We only store the public token client-side, so load the public package list
+    // and select the Förderer package by name (or the only package in the store).
+    const payload = await getJson(`${API}/accounts/${encodeURIComponent(token)}/packages`);
     const data = unwrap(payload);
-    const item = Array.isArray(data) ? data[0] : data;
+    const packages = Array.isArray(data) ? data : [];
+
+    const normalize = value => String(value || '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+
+    const item = packages.find(pkg => normalize(pkg?.name).includes('forderer'))
+      || (packages.length === 1 ? packages[0] : null);
+
     if (!item?.id) throw new Error('Das Förderer-Paket konnte bei Tebex nicht gefunden werden.');
     return item;
   };

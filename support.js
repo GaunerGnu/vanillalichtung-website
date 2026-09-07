@@ -85,10 +85,15 @@
     return basket;
   };
 
-  const addPackage = async (basketIdent, packageId) => {
+  const addPackage = async (basketIdent, packageId, usernameId) => {
+    if (!usernameId) throw new Error('Tebex konnte den Minecraft-Account nicht eindeutig zuordnen.');
     const payload = await getJson(`${API}/baskets/${encodeURIComponent(basketIdent)}/packages`, {
       method: 'POST',
-      body: JSON.stringify({ package_id: String(packageId), quantity: 1 })
+      body: JSON.stringify({
+        package_id: String(packageId),
+        quantity: 1,
+        variable_data: { username_id: String(usernameId) }
+      })
     });
     return unwrap(payload) || {};
   };
@@ -153,7 +158,7 @@
         getPackage(token),
         createBasket(token, username)
       ]);
-      const updatedBasket = await addPackage(basket.ident, pkg.id);
+      const updatedBasket = await addPackage(basket.ident, pkg.id, basket.username_id);
       await launchCheckout(basket, updatedBasket);
     } catch (error) {
       console.error('Förderer-Checkout fehlgeschlagen:', error);

@@ -73,8 +73,20 @@
           <label for="minecraft-name">Minecraft-Java-Name</label>
           <div class="support-input-row">
             <input id="minecraft-name" name="minecraft-name" type="text" inputmode="text" autocomplete="off" minlength="3" maxlength="16" pattern="[A-Za-z0-9_]{3,16}" placeholder="DeinSpielername" required aria-describedby="support-name-help">
-            <button class="button button-primary" id="support-submit" type="submit"><span class="button-label">Sicher zum Checkout</span><span aria-hidden="true">↗</span></button>
           </div>
+
+          <div class="support-payment-choice" aria-label="Zahlungsart">
+            <label class="support-payment-option support-payment-option-primary">
+              <input type="radio" name="foerderer-payment" value="subscription" checked>
+              <span><strong>Monatlich unterstützen</strong><small>4,99 € / Monat · automatisch verlängernd · jederzeit kündbar</small></span>
+            </label>
+            <label class="support-payment-option">
+              <input type="radio" name="foerderer-payment" value="single">
+              <span><strong>Einmalig unterstützen</strong><small>4,99 € · Förderer für einen Monat</small></span>
+            </label>
+          </div>
+
+          <button class="button button-primary support-checkout-button" id="support-submit" type="submit"><span class="button-label">Sicher zum Checkout</span><span aria-hidden="true">↗</span></button>
           <small id="support-name-help">Der Status wird automatisch genau diesem Minecraft-Account zugeordnet.</small>
         </form>
         <p class="support-status" id="support-status" role="status" aria-live="polite"></p>
@@ -117,6 +129,6 @@
   <div class="toast" id="copy-toast" role="status" aria-live="polite">Serveradresse kopiert</div>
   <script src="tebex-config.js"></script>
   <script src="script.js" defer></script>
-  <script src="support-minecraft-v10.js?build=20260907-1536" defer></script>
+  <script src="support-minecraft-v12.js?build=20260907-v12" defer></script>
 </body>
 </html>

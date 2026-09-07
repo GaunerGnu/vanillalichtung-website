@@ -547,16 +547,46 @@ main section[id] { scroll-margin-top: 68px; }
   .support-context-facts > div { grid-template-columns: 1fr; gap: 7px; }
 }
 
-/* Förderer-Checkout: schlanker Headless-Flow über Tebex */
-.support-start-button {
-  width: 100%;
-  min-height: 58px;
-  margin-top: 26px;
-  justify-content: center;
-  border-radius: 4px;
+
+/* Förderer-Zahlungsart */
+.support-payment-choice {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
 }
-.support-checkout form > small {
-  max-width: 680px;
-  margin-top: 12px;
-  line-height: 1.6;
+.support-payment-option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 15px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(255,255,255,.025);
+}
+.support-payment-option:has(input:checked) {
+  border-color: rgba(113, 196, 117, .7);
+  background: rgba(82, 154, 86, .12);
+}
+.support-payment-option input {
+  margin-top: 3px;
+  accent-color: #70b874;
+}
+.support-payment-option span {
+  display: grid;
+  gap: 3px;
+}
+.support-payment-option small {
+  opacity: .72;
+  line-height: 1.45;
+}
+.support-payment-option-primary strong::after {
+  content: " · empfohlen";
+  font-weight: 500;
+  opacity: .62;
+}
+.support-checkout-button {
+  width: 100%;
+  justify-content: center;
+  margin: 3px 0 10px;
 }

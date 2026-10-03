@@ -27,7 +27,7 @@ Checkout
 - Die serverseitigen Tebex-Commands / Förderer-Skripte bleiben unverändert.
 
 Aktuelle Serverangaben auf der Website
-- Minecraft Java 26.2
+- Minecraft Java 26.3
 - bis zu 32 Chunks Sichtweite
 - 30 Start-Claim-Chunks
 - +1 Claim-Chunk je 90 Minuten Spielzeit
